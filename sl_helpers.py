@@ -251,3 +251,29 @@ def file_download_bytes(path: Path) -> bytes | None:
 
 def mechanisms() -> list[dict]:
     return load_json("technologies.json")["water_mechanisms"]
+
+
+def build_profile_payload(session: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """Digital twin / Профиль — top-5 radar + economics."""
+    from vodopritok.demo.context_builder import _pipeline_from_session
+    from vodopritok.selecgel.digital_twin import build_twins_from_pipeline
+    from vodopritok.web.viz import build_twin_radar_bundle
+
+    session = session or load_session()
+    if not session or not session.get("pipeline"):
+        return None
+    pipeline = _pipeline_from_session(session)
+    if not pipeline:
+        return None
+    reservoir = reservoir_from_form(session["reservoir"])
+    twins = build_twins_from_pipeline(pipeline, reservoir)
+    if not twins:
+        return None
+    lab_rows = load_lab_measurements()
+    bundle = build_twin_radar_bundle(twins, lab_rows, reservoir.temperature_c)
+    return {
+        "twins": twins,
+        "radar": bundle,
+        "lab_count": len(lab_rows),
+        "reservoir": reservoir,
+    }

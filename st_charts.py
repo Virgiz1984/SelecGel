@@ -280,6 +280,146 @@ def chart_tech_economics(comparison: list[dict]) -> alt.Chart | None:
     return _apply_theme(chart)
 
 
+_RADAR_PALETTE = ["#3b82f6", "#8b5cf6", "#f59e0b", "#ec4899", "#06b6d4"]
+
+
+def _hex_rgba(hex_color: str, alpha: float) -> str:
+    h = hex_color.lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    return f"rgba({r},{g},{b},{alpha})"
+
+
+def chart_twin_economics(twin: Any) -> alt.Chart:
+    eco = twin.economics if hasattr(twin, "economics") else twin["economics"]
+    df = pd.DataFrame(
+        {
+            "Показатель": ["Экономия/год", "NPV 3 года", "Payback"],
+            "Значение": [
+                float(eco.get("annual_savings_rub", 0)) / 1_000_000,
+                float(eco.get("npv_3yr_rub", 0)) / 1_000_000,
+                float(eco.get("payback_months", 0)),
+            ],
+            "Подпись": [
+                f"{eco.get('annual_savings_rub', 0)/1e6:.1f} млн ₽",
+                f"{eco.get('npv_3yr_rub', 0)/1e6:.1f} млн ₽",
+                f"{eco.get('payback_months', 0):.0f} мес",
+            ],
+        }
+    )
+    chart = (
+        alt.Chart(df)
+        .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
+        .encode(
+            x=alt.X("Показатель:N", title=""),
+            y=alt.Y("Значение:Q", title=""),
+            color=alt.Color("Показатель:N", legend=None, scale=alt.Scale(range=["#22c55e", "#3b82f6", "#f59e0b"])),
+            tooltip=["Показатель", "Подпись"],
+        )
+        .properties(height=280, title="Экономика lead candidate")
+    )
+    return _apply_theme(chart)
+
+
+def twin_radar_figure(
+    bundle: dict[str, Any],
+    selected_ranks: list[int],
+    show_lab: bool = True,
+):
+    import plotly.graph_objects as go
+
+    labels = bundle["labels"]
+    gate = bundle["gate"]
+    theta = labels + [labels[0]]
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatterpolar(
+            r=gate + [gate[0]],
+            theta=theta,
+            name="Gate (цель)",
+            line=dict(color="#22c55e", dash="dash", width=2),
+            fill="toself",
+            fillcolor="rgba(34,197,94,0.08)",
+            opacity=0.9,
+        )
+    )
+
+    for cand in bundle.get("candidates", []):
+        rank = int(cand.get("rank", 0))
+        if rank not in selected_ranks:
+            continue
+        values = cand.get("values", [])
+        if not values:
+            continue
+        color = _RADAR_PALETTE[(rank - 1) % len(_RADAR_PALETTE)]
+        fig.add_trace(
+            go.Scatterpolar(
+                r=values + [values[0]],
+                theta=theta,
+                name=f"#{rank} {cand.get('mol_id', '')}",
+                line=dict(color=color, width=2),
+                fill="toself",
+                fillcolor=_hex_rgba(color, 0.15),
+                opacity=0.75,
+            )
+        )
+
+    if show_lab and bundle.get("lab"):
+        lab_by_rank = {int(l["rank"]): l for l in bundle["lab"]}
+        for rank in selected_ranks:
+            lab = lab_by_rank.get(rank)
+            if not lab:
+                continue
+            values = lab.get("values", [])
+            if not values:
+                continue
+            fig.add_trace(
+                go.Scatterpolar(
+                    r=values + [values[0]],
+                    theta=theta,
+                    name=f"Lab #{rank}",
+                    line=dict(color="#94a3b8", dash="dot", width=2),
+                    fill="none",
+                    opacity=0.9,
+                )
+            )
+
+    fig.update_layout(
+        polar=dict(radialaxis=dict(range=[0, 10], showgrid=True, gridcolor="#334155")),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+        legend=dict(orientation="h", yanchor="bottom", y=-0.15),
+        height=480,
+        title=dict(text="Профиль реагента (норм. 0–10)", x=0.5),
+        margin=dict(t=60, b=80),
+    )
+    return fig
+
+
+def show_plotly(fig) -> None:
+    if fig is not None:
+        st.plotly_chart(fig, width="stretch")
+
+
+def radar_gate_summary_table(bundle: dict, selected_ranks: list[int]) -> pd.DataFrame:
+    rows = []
+    for cand in bundle.get("candidates", []):
+        if int(cand.get("rank", 0)) not in selected_ranks:
+            continue
+        for item in cand.get("summary", []):
+            rows.append(
+                {
+                    "Кандидат": cand.get("mol_id"),
+                    "Ось": item.get("axis"),
+                    "Score": item.get("score"),
+                    "Gate": item.get("gate"),
+                    "Pass": "✓" if item.get("pass") else "✗",
+                }
+            )
+    return pd.DataFrame(rows)
+
+
 def show_chart(chart: alt.Chart | None) -> None:
     if chart is not None:
         st.altair_chart(chart, width="stretch")
