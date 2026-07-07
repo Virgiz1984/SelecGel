@@ -186,20 +186,24 @@ def chart_qsprpred_scatter(validation: dict | None) -> alt.Chart | None:
 def chart_risk_cards(risk: dict | None) -> alt.Chart | None:
     if not risk or not risk.get("cards"):
         return None
-    df = pd.DataFrame(
-        [{"Критерий": c["title"], "Score": float(c["score"])} for c in risk["cards"]]
-    )
+    rows = []
+    for c in risk["cards"]:
+        score = float(c["score"])
+        if score >= 75:
+            color = "#22c55e"
+        elif score >= 50:
+            color = "#f59e0b"
+        else:
+            color = "#ef4444"
+        rows.append({"Критерий": c["title"], "Score": score, "color": color})
+    df = pd.DataFrame(rows)
     chart = (
         alt.Chart(df)
         .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
         .encode(
             x=alt.X("Критерий:N", title="", sort="-y"),
             y=alt.Y("Score:Q", title="Score / 100"),
-            color=alt.condition(
-                alt.datum.Score >= 75,
-                alt.value("#22c55e"),
-                alt.condition(alt.datum.Score >= 50, alt.value("#f59e0b"), alt.value("#ef4444")),
-            ),
+            color=alt.Color("color:N", scale=None, legend=None),
         )
         .properties(height=280, title=f"Risk dashboard · {risk.get('overall_score', 0):.0f}/100")
     )
@@ -278,7 +282,7 @@ def chart_tech_economics(comparison: list[dict]) -> alt.Chart | None:
 
 def show_chart(chart: alt.Chart | None) -> None:
     if chart is not None:
-        st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart, width="stretch")
 
 
 def render_home_charts(session: dict | None, recommendations: list[Any]) -> None:

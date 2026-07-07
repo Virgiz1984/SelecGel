@@ -8,7 +8,6 @@ from vodopritok.decision_tree import TechnologyRecommendation
 from vodopritok.demo.context_builder import build_fto_rows
 from vodopritok.economics import OpexScenario, analyze_opex
 from vodopritok.models import ReservoirCard
-from vodopritok.opr_program import score_well_candidate
 
 
 def _level(score: float) -> str:
@@ -27,6 +26,8 @@ def build_risk_dashboard(
     validation_metrics: dict | None = None,
     fto_rows: list[dict] | None = None,
 ) -> dict[str, Any]:
+    from vodopritok.opr_program import score_well_candidate
+
     well_score, well_notes = score_well_candidate(reservoir)
     tech_score = recommendations[0].score if recommendations else 50.0
 
