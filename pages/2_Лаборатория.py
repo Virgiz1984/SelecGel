@@ -15,20 +15,28 @@ if not ctx:
     st.stop()
 
 plan = build_lab_program(ctx)
+tracks = plan["tracks"]
+t1 = tracks.get("track1")
+t2 = tracks.get("track2")
 
 c1, c2, c3 = st.columns(3)
-c1.metric("Track 1 (primary)", plan["track1"]["name"])
-c2.metric("Track 2 (backup)", plan["track2"]["name"])
-c3.metric("Lab gate Frrw", f"≥ {plan['gate_kpi']['frrw_min']}")
+c1.metric("Track 1 (primary)", t1.name_ru if t1 else "RPM")
+c2.metric("Track 2 (backup)", t2.name_ru if t2 else "Thermotropic gel")
+c3.metric("Рецептур Track 1", len(plan["track1_candidates"]))
+
+st.caption("Lab gate Phase 2: Frrw ≥ 5, Frro ≤ 2 (см. gate criteria ниже)")
 
 st.subheader("Очередь синтеза")
-st.dataframe(__import__("pandas").DataFrame(plan["synthesis_queue"]), use_container_width=True, hide_index=True)
+st.dataframe(__import__("pandas").DataFrame(plan["synthesis_queue"]), width="stretch", hide_index=True)
 
 st.subheader("Timeline")
-st.dataframe(__import__("pandas").DataFrame(plan["timeline"]), use_container_width=True, hide_index=True)
+st.dataframe(__import__("pandas").DataFrame(plan["timeline"]), width="stretch", hide_index=True)
+
+st.subheader("Gate criteria")
+st.dataframe(__import__("pandas").DataFrame(plan["gate_criteria"]), width="stretch", hide_index=True)
 
 st.subheader("DoE matrix")
-st.dataframe(__import__("pandas").DataFrame(plan["doe_matrix"]), use_container_width=True, hide_index=True)
+st.dataframe(__import__("pandas").DataFrame(plan["doe_runs"]), width="stretch", hide_index=True)
 
 if st.button("Сгенерировать .docx"):
     path = generate_lab_program_doc(ctx)

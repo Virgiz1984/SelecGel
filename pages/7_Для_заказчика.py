@@ -20,7 +20,7 @@ for i, point in enumerate(PITCH_POINTS, 1):
 
 st.subheader("Покрытие ТЗ")
 rows = [{"Требование ТЗ": r["tz"], "Deliverable": r["deliverable"], "Как показываю": r["demo"]} for r in TZ_MAPPING]
-st.dataframe(__import__("pandas").DataFrame(rows), use_container_width=True, hide_index=True)
+st.dataframe(__import__("pandas").DataFrame(rows), width="stretch", hide_index=True)
 
 ctx = deliverable_context()
 if ctx:

@@ -15,23 +15,22 @@ if not ctx:
     st.stop()
 
 plan = build_opr_program(ctx)
+inj = plan["injection"]
 
 st.subheader("Скоринг скважины")
-well = plan["well_scoring"]
 c1, c2, c3 = st.columns(3)
-c1.metric("Скважина", well.get("well_name", "—"))
-c2.metric("Score", well.get("total_score", "—"))
-c3.metric("Рекомендация", well.get("recommendation", "—"))
+c1.metric("Скважина", plan.get("candidate_well", "—"))
+c2.metric("Score", f"{plan.get('well_score', 0):.0f}/100")
+c3.metric("Технология", plan.get("technology", "—")[:32])
 
 st.subheader("Injection design")
-inj = plan["injection_design"]
 st.json(inj)
 
 st.subheader("Timeline ОПР")
-st.dataframe(__import__("pandas").DataFrame(plan["timeline"]), use_container_width=True, hide_index=True)
+st.dataframe(__import__("pandas").DataFrame(plan["timeline"]), width="stretch", hide_index=True)
 
 st.subheader("KPI gate")
-st.dataframe(__import__("pandas").DataFrame([plan["opr_gate"]]), use_container_width=True, hide_index=True)
+st.dataframe(__import__("pandas").DataFrame([plan["opr_gate"]]), width="stretch", hide_index=True)
 
 if st.button("Сгенерировать .docx"):
     path = generate_opr_program_doc(ctx)

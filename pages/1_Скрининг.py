@@ -31,7 +31,7 @@ with st.form("reservoir_form"):
         field_name = st.text_input("Месторождение", defaults.get("field_name", ""))
         well_name = st.text_input("Скважина", defaults.get("well_name", ""))
         temperature_c = st.number_input("T, °C", value=float(defaults.get("temperature_c", 85)))
-        salinity_g_l = st.number_input("Минeralization, g/L", value=float(defaults.get("salinity_g_l", 130)))
+        salinity_g_l = st.number_input("Мineralization, g/L", value=float(defaults.get("salinity_g_l", 130)))
         permeability_md = st.number_input("Проницаемость, mD", value=float(defaults.get("permeability_md", 450)))
     with c2:
         company = st.text_input("Заказчик", company_default)
@@ -95,7 +95,7 @@ if not payload and session and session.get("pipeline"):
 
 st.subheader("Рекомендация технологий")
 tech_df = __import__("pandas").DataFrame(
-    [{"Технология": r.name_ru, "Score": round(r.score, 1), "Track": r.rd_track} for r in recs]
+    [{"Технология": r.name_ru, "Score": round(r.score, 1), "Track": r.track} for r in recs]
 )
 st.bar_chart(tech_df.set_index("Технология")["Score"])
 
@@ -106,16 +106,22 @@ if payload:
     st.bar_chart(funnel.set_index("Этап")["Молекул"])
 
     st.subheader("Top-5")
-    st.dataframe(top5_dataframe(payload["top5"]), use_container_width=True, hide_index=True)
+    st.dataframe(top5_dataframe(payload["top5"]), width="stretch", hide_index=True)
 
     if payload.get("fto_rows"):
         st.subheader("FTO / патенты")
-        st.dataframe(__import__("pandas").DataFrame(payload["fto_rows"]), use_container_width=True, hide_index=True)
+        st.dataframe(__import__("pandas").DataFrame(payload["fto_rows"]), width="stretch", hide_index=True)
 
     risk = payload.get("risk_dashboard")
     if risk:
         st.subheader("Risk dashboard")
         rc1, rc2, rc3 = st.columns(3)
-        rc1.metric("Общий риск", risk.get("overall_label", "—"))
-        rc2.metric("Lab gate", "PASS" if risk.get("lab_gate_pass") else "FAIL")
-        rc3.metric("FTO", risk.get("fto_summary", "—"))
+        rc1.metric(
+            "Общий риск",
+            f"{risk.get('overall_score', 0):.0f}/100",
+            help=risk.get("overall_level", "—"),
+        )
+        lab_card = next((c for c in risk.get("cards", []) if c.get("id") == "lab"), {})
+        fto_card = next((c for c in risk.get("cards", []) if c.get("id") == "fto"), {})
+        rc2.metric("Lab readiness", lab_card.get("detail", "—"))
+        rc3.metric("FTO", fto_card.get("detail", "—"))

@@ -49,4 +49,4 @@ for point in PITCH_POINTS:
 
 st.subheader("Покрытие ТЗ")
 rows = [{"Требование ТЗ": r["tz"], "Deliverable": r["deliverable"], "Демо": r["demo"]} for r in TZ_MAPPING]
-st.dataframe(rows, use_container_width=True, hide_index=True)
+st.dataframe(rows, width="stretch", hide_index=True)
