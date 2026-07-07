@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from sl_helpers import OpexScenario, analyze_opex, build_opex_plan, deliverable_context, generate_opex_plan_doc, file_download_bytes
+from st_charts import chart_measures, show_chart
 from vodopritok.models import OUTPUT_DIR
 
 st.header("План снижения OPEX")
@@ -45,6 +46,7 @@ lc3.metric("Чистая выгода/год", f"{live.net_annual_benefit_rub:,.
 
 st.subheader("10 мероприятий")
 measures = sorted(plan["measures"], key=lambda m: m.get("estimated_annual_rub", 0), reverse=True)
+show_chart(chart_measures(measures))
 st.dataframe(__import__("pandas").DataFrame(measures), width="stretch", hide_index=True)
 
 if st.button("Сгенерировать .docx"):

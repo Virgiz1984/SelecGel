@@ -180,9 +180,11 @@ def payload_from_session(
     if not top5_dicts:
         return None
     stages = pipe.get("stages", [])
+    comparison = session.get("qsprpred_comparison")
     return {
         "stages": stages,
         "top5": top5_dicts,
+        "comparison": comparison,
         "recommendations": recs,
         "fto_rows": build_fto_rows(top5_dicts),
         "risk_dashboard": build_risk_dashboard(
@@ -190,6 +192,7 @@ def payload_from_session(
             top5_dicts,
             recs,
             stages=stages,
+            validation_metrics=(comparison or {}).get("after"),
         ),
         "library_stats": pipe.get("library_stats") or lib_stats,
     }

@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from sl_helpers import build_synthesis_assessment, deliverable_context, generate_synthesis_assessment_doc, file_download_bytes
+from st_charts import chart_feasibility, show_chart
 from vodopritok.models import OUTPUT_DIR
 
 st.header("Хемоинформатика — оценка синтеза")
@@ -25,6 +26,8 @@ c1.metric("Feasibility (avg)", f"{avg_score:.0f}/100")
 c2.metric("Рекомендовано к синтезу", assessment["recommended_count"])
 c3.metric("FTO low-risk", sum(1 for a in items if a["fto_risk"] == "low"))
 c4.metric("Мономеров OK", sum(1 for m in monomers if m.get("fit_note") == "OK"))
+
+show_chart(chart_feasibility(items))
 
 st.subheader("Top-5 feasibility")
 rows = [

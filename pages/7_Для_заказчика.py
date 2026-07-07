@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import streamlit as st
 
-from sl_helpers import PITCH_POINTS, TZ_MAPPING, analyze_opex, build_opex_plan, deliverable_context, OpexScenario
+from sl_helpers import PITCH_POINTS, TZ_MAPPING, analyze_opex, build_opex_plan, deliverable_context, OpexScenario, recommend_technologies, reservoir_from_form, form_defaults, load_session
+from st_charts import chart_funnel, chart_stages, chart_tech_economics, chart_tech_scores, chart_top5_bars, show_chart
+from vodopritok.economics import compare_technology_economics
 
 st.header("Для заказчика")
 
@@ -23,6 +25,26 @@ rows = [{"Требование ТЗ": r["tz"], "Deliverable": r["deliverable"], 
 st.dataframe(__import__("pandas").DataFrame(rows), width="stretch", hide_index=True)
 
 ctx = deliverable_context()
+session = load_session()
+form = form_defaults()
+reservoir = reservoir_from_form(form)
+recs = recommend_technologies(reservoir, top_n=3)
+
+st.subheader("Визуализация для заказчика")
+pc1, pc2 = st.columns(2)
+with pc1:
+    show_chart(chart_tech_scores(recs))
+    show_chart(chart_tech_economics(compare_technology_economics(reservoir)))
+with pc2:
+    if session and session.get("pipeline"):
+        pipe = session["pipeline"]
+        stages = pipe.get("stages", [])
+        top5 = pipe.get("top5", [])
+        show_chart(chart_funnel(stages, top_n=len(top5), total_input=pipe.get("total_input", 500)))
+        if top5:
+            show_chart(chart_top5_bars(top5))
+        show_chart(chart_stages(stages))
+
 if ctx:
     plan = build_opex_plan(ctx)
     scenario = plan["scenario"]

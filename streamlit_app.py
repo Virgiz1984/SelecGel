@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import streamlit as st
 
-from sl_helpers import PITCH_POINTS, PRODUCT_NAME, PRODUCT_TAGLINE, TZ_MAPPING, form_defaults, load_session, rdkit_available
+from sl_helpers import PITCH_POINTS, PRODUCT_NAME, PRODUCT_TAGLINE, TZ_MAPPING, form_defaults, load_session, rdkit_available, recommend_technologies, reservoir_from_form
+from st_charts import render_home_charts
 
 st.set_page_config(
     page_title=PRODUCT_NAME,
@@ -30,6 +31,10 @@ form = form_defaults()
 col1.metric("Месторождение", form.get("field_name", "—")[:24])
 col2.metric("Обводнённость", f"{form.get('water_cut_pct', 0):.0f} %")
 col3.metric("T пласта", f"{form.get('temperature_c', 0):.0f} °C")
+
+reservoir = reservoir_from_form(form)
+recs = recommend_technologies(reservoir, top_n=3)
+render_home_charts(session, recs)
 
 st.divider()
 

@@ -6,16 +6,17 @@ import streamlit as st
 
 from sl_helpers import (
     form_defaults,
-    funnel_dataframe,
     library_stats,
     load_session,
     mechanisms,
     payload_from_session,
+    rd_track_strategy,
     recommend_technologies,
     reservoir_from_form,
     run_screening,
     top5_dataframe,
 )
+from st_charts import render_screening_charts
 
 st.header("Скрининг 500 → top-5")
 
@@ -72,6 +73,7 @@ form = {
 reservoir = reservoir_from_form(form)
 recs = recommend_technologies(reservoir, top_n=3)
 lib = library_stats(500)
+rd_tracks = rd_track_strategy(reservoir)
 
 st.subheader("Патентная библиотека")
 lc1, lc2, lc3 = st.columns(3)
@@ -93,35 +95,22 @@ if not payload and session and session.get("pipeline"):
     st.info("Показаны данные из последней сохранённой сессии. Нажмите «Запустить» для пересчёта.")
     payload = payload_from_session(session, reservoir, recs, lib)
 
-st.subheader("Рекомендация технологий")
-tech_df = __import__("pandas").DataFrame(
-    [{"Технология": r.name_ru, "Score": round(r.score, 1), "Track": r.track} for r in recs]
-)
-st.bar_chart(tech_df.set_index("Технология")["Score"])
+render_screening_charts(payload, recs)
 
 if payload:
-    st.subheader("Воронка конвейера")
-    stages = payload.get("stages", [])
-    funnel = funnel_dataframe(stages, top_n=len(payload["top5"]))
-    st.bar_chart(funnel.set_index("Этап")["Молекул"])
+    st.subheader("Двухтрековая стратегия R&D")
+    st.caption(rd_tracks.get("screening_note", ""))
+    tc1, tc2 = st.columns(2)
+    t1 = rd_tracks.get("track1")
+    t2 = rd_tracks.get("track2")
+    with tc1:
+        st.markdown(f"**Track 1 — primary**  \n{t1.name_ru if t1 else '—'}  \n{t1.track if t1 else ''}")
+    with tc2:
+        st.markdown(f"**Track 2 — backup**  \n{t2.name_ru if t2 else '—'}  \n{t2.track if t2 else ''}")
 
-    st.subheader("Top-5")
+    st.subheader("Top-5 для лаборатории")
     st.dataframe(top5_dataframe(payload["top5"]), width="stretch", hide_index=True)
 
     if payload.get("fto_rows"):
         st.subheader("FTO / патенты")
         st.dataframe(__import__("pandas").DataFrame(payload["fto_rows"]), width="stretch", hide_index=True)
-
-    risk = payload.get("risk_dashboard")
-    if risk:
-        st.subheader("Risk dashboard")
-        rc1, rc2, rc3 = st.columns(3)
-        rc1.metric(
-            "Общий риск",
-            f"{risk.get('overall_score', 0):.0f}/100",
-            help=risk.get("overall_level", "—"),
-        )
-        lab_card = next((c for c in risk.get("cards", []) if c.get("id") == "lab"), {})
-        fto_card = next((c for c in risk.get("cards", []) if c.get("id") == "fto"), {})
-        rc2.metric("Lab readiness", lab_card.get("detail", "—"))
-        rc3.metric("FTO", fto_card.get("detail", "—"))
