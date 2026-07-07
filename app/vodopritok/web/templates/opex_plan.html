@@ -64,6 +64,8 @@
     </div>
   </section>
 
+  {% include "_environmental_effect.html" %}
+
   <section class="card">
     <h2>Структура OPEX воды</h2>
     <table>
@@ -143,7 +145,7 @@
 <script src="/static/economics.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    initEconomicsSlider({});
+    initEconomicsSlider({{ eco_defaults | tojson }});
     ['eco-wc-before','eco-wc-after','eco-oil-rate','eco-treatment'].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;

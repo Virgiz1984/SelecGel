@@ -181,9 +181,18 @@ def payload_from_session(
         return None
     stages = pipe.get("stages", [])
     comparison = session.get("qsprpred_comparison")
+    validation = None
+    from vodopritok.demo.context_builder import _pipeline_from_session
+
+    pipeline = _pipeline_from_session(session)
+    if pipeline:
+        validation, comp_fresh = validation_with_lab(pipeline, top5_dicts)
+        if not comparison:
+            comparison = comp_fresh
     return {
         "stages": stages,
         "top5": top5_dicts,
+        "validation": validation,
         "comparison": comparison,
         "recommendations": recs,
         "fto_rows": build_fto_rows(top5_dicts),
@@ -200,17 +209,44 @@ def payload_from_session(
 
 def top5_dataframe(top5: list[dict]) -> pd.DataFrame:
     rows = []
-    for mol in top5:
+    for mol in sorted(top5, key=lambda m: m.get("rank", 99)):
+        frrw = float(mol.get("predicted_frrw", 0))
+        frro = float(mol.get("predicted_frro", 0))
         rows.append(
             {
-                "Rank": mol.get("rank"),
-                "ID": mol.get("mol_id"),
-                "Frrw": round(float(mol.get("predicted_frrw", 0)), 2),
-                "Frro": round(float(mol.get("predicted_frro", 0)), 2),
-                "Селективность": round(float(mol.get("selectivity_index", 0)), 2),
+                "#": mol.get("rank"),
+                "mol_id": mol.get("mol_id"),
+                "Frrw": round(frrw, 2),
+                "Frro": round(frro, 2),
+                "Selectivity": round(float(mol.get("selectivity_index", frrw / max(frro, 0.1))), 2),
+                "Lab gate": "pass" if frrw >= 5 and frro <= 2 else "lab",
             }
         )
     return pd.DataFrame(rows)
+
+
+def top5_table_html(top5: list[dict]) -> str:
+    """HTML-таблица как на FastAPI /screening."""
+    rows = []
+    for mol in sorted(top5, key=lambda m: m.get("rank", 99)):
+        frrw = float(mol.get("predicted_frrw", 0))
+        frro = float(mol.get("predicted_frro", 0))
+        sel = float(mol.get("selectivity_index", frrw / max(frro, 0.1)))
+        gate_ok = frrw >= 5 and frro <= 2
+        gate_cls = "ok" if gate_ok else "warn"
+        gate_txt = "pass" if gate_ok else "lab"
+        rows.append(
+            f"<tr><td>{mol.get('rank', '—')}</td>"
+            f"<td><strong>{mol.get('mol_id', '—')}</strong></td>"
+            f"<td>{frrw:.2f}</td><td>{frro:.2f}</td><td>{sel:.2f}</td>"
+            f'<td><span class="tag {gate_cls}">{gate_txt}</span></td></tr>'
+        )
+    return (
+        '<section class="card"><h2>Top-5 для лаборатории</h2>'
+        "<table><thead><tr><th>#</th><th>mol_id</th><th>Frrw</th><th>Frro</th>"
+        "<th>Selectivity</th><th>Lab gate</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table></section>"
+    )
 
 
 def funnel_dataframe(stages: list[dict], top_n: int = 5) -> pd.DataFrame:
@@ -251,6 +287,35 @@ def file_download_bytes(path: Path) -> bytes | None:
 
 def mechanisms() -> list[dict]:
     return load_json("technologies.json")["water_mechanisms"]
+
+
+def upload_lab_csv(content: bytes) -> bool:
+    """Загрузка lab CSV и пересчёт QSPRpred в сессии."""
+    from vodopritok.demo.context_builder import _pipeline_from_session
+    from vodopritok.demo.lab_data import UPLOADED_LAB_CSV
+    from vodopritok.demo.session import save_session
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    UPLOADED_LAB_CSV.write_bytes(content)
+    session = load_session()
+    if not session or not session.get("pipeline"):
+        return True
+    pipeline = _pipeline_from_session(session)
+    if not pipeline:
+        return True
+    top5_dicts = session["pipeline"]["top5"]
+    validation, comparison = validation_with_lab(pipeline, top5_dicts)
+    if validation:
+        export_qsprpred_json(validation["report"], OUTPUT_DIR / "qsprpred_validation.json")
+    save_session(
+        session["reservoir"],
+        session.get("expert", "Эксперт по ОВП"),
+        session.get("company", "Заказчик"),
+        session.get("pipeline"),
+        lab_csv_path=str(UPLOADED_LAB_CSV),
+        qsprpred_comparison=comparison,
+    )
+    return True
 
 
 def build_profile_payload(session: dict[str, Any] | None = None) -> dict[str, Any] | None:

@@ -5,10 +5,13 @@ from __future__ import annotations
 import streamlit as st
 
 from sl_helpers import build_synthesis_assessment, deliverable_context, generate_synthesis_assessment_doc, file_download_bytes
+from sl_webui import setup_page
 from st_charts import chart_feasibility, show_chart
 from vodopritok.models import OUTPUT_DIR
 
-st.header("Хемоинформатика — оценка синтеза")
+setup_page("chem", "Хемоинформатика")
+
+st.markdown("### Хемоинформатика — оценка синтеза")
 
 ctx = deliverable_context()
 if not ctx:

@@ -35,6 +35,7 @@ from vodopritok.pipeline.patent_library import ensure_patent_library
 from vodopritok.demo.risk_dashboard import build_risk_dashboard
 from vodopritok.lab_program import build_lab_program
 from vodopritok.economics import OpexScenario, analyze_opex, build_opex_plan
+from vodopritok.environmental_impact import build_environmental_impact
 from vodopritok.export import generate_cover_letter, generate_one_pager, generate_tz_checklist
 from vodopritok.web.viz import (
     build_home_charts,
@@ -81,11 +82,32 @@ def _opex_plan_payload() -> dict:
 def _eco_defaults() -> dict[str, float]:
     ctx = build_deliverable_context()
     plan = build_opex_plan(ctx)
+    tech_id = "hrpm"
+    if ctx:
+        recs = recommend_technologies(ctx.reservoir, top_n=1)
+        if recs:
+            tech_id = recs[0].technology_id
     return {
         "wc_before": ctx.reservoir.water_cut_pct,
         "wc_after": plan["scenario"].water_cut_after_pct,
         "oil_rate": ctx.reservoir.oil_rate_tpd,
+        "tech_id": tech_id,
     }
+
+
+def _environmental_payload(
+    analysis,
+    reservoir: ReservoirCard,
+    recs,
+    wc_after: float | None = None,
+) -> dict:
+    tech_id = recs[0].technology_id if recs else "hrpm"
+    return build_environmental_impact(
+        analysis,
+        tech_id=tech_id,
+        wc_before=reservoir.water_cut_pct,
+        wc_after=wc_after if wc_after is not None else max(reservoir.water_cut_pct - 18, 55),
+    )
 
 
 def _synthesis_assessment_payload() -> dict:
@@ -222,6 +244,7 @@ async def api_economics(
     wc_after: float = 64,
     oil_rate: float = 14.5,
     treatment: float = 900_000,
+    tech_id: str = "hrpm",
 ) -> JSONResponse:
     a = analyze_opex(OpexScenario(
         name="case",
@@ -231,6 +254,9 @@ async def api_economics(
         treatment_cost_rub=treatment,
     ))
     top_measures = sorted(a.measures, key=lambda m: m.get("estimated_annual_rub", 0), reverse=True)[:5]
+    environmental = build_environmental_impact(
+        a, tech_id=tech_id, wc_before=wc_before, wc_after=wc_after,
+    )
     return JSONResponse({
         "annual_savings_rub": a.annual_savings_rub,
         "payback_months": a.payback_months,
@@ -240,6 +266,7 @@ async def api_economics(
         "baseline_water_opex_rub": a.baseline_water_opex_rub,
         "water_opex_after_rub": a.water_opex_after_rub,
         "measures": top_measures,
+        "environmental": environmental,
     })
 
 
@@ -339,6 +366,18 @@ async def screening_run(
             fto_rows=fto,
         )
         wc_after_default = max(reservoir.water_cut_pct - 18, 55)
+        opex_preview = analyze_opex(OpexScenario(
+            name=reservoir.field_name,
+            water_cut_before_pct=reservoir.water_cut_pct,
+            water_cut_after_pct=wc_after_default,
+            oil_rate_tpd=reservoir.oil_rate_tpd,
+        ))
+        eco_def = {
+            "wc_before": reservoir.water_cut_pct,
+            "wc_after": wc_after_default,
+            "oil_rate": reservoir.oil_rate_tpd,
+            "tech_id": recs[0].technology_id if recs else "hrpm",
+        }
         return TEMPLATES.TemplateResponse(request, "screening.html", _ctx(
             "screening", form=form, expert=expert, company=company,
             mechanisms=_mechanisms(), recommendations=recs,
@@ -347,8 +386,8 @@ async def screening_run(
             library_stats=summary.get("library_stats"),
             fto_rows=fto, lab_count=len(load_lab_measurements()),
             risk_dashboard=risk, qsprpred_comparison=comparison,
-            eco_defaults={"wc_before": reservoir.water_cut_pct, "wc_after": wc_after_default,
-                          "oil_rate": reservoir.oil_rate_tpd},
+            eco_defaults=eco_def,
+            environmental_impact=_environmental_payload(opex_preview, reservoir, recs, wc_after_default),
             charts_json=json.dumps(build_screening_charts(result, recs, validation, comparison)),
             lab_program=_lab_program_payload(),
             opex_plan=_opex_plan_payload(),
@@ -430,6 +469,7 @@ async def opex_plan_page(request: Request) -> HTMLResponse:
         "opex",
         plan=plan,
         eco_defaults=_eco_defaults(),
+        environmental_impact=plan.get("environmental_impact"),
     ))
 
 

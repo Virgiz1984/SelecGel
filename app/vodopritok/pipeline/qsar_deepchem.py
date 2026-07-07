@@ -188,6 +188,17 @@ def _finalize_top(results: list[QSARScore], top_n: int) -> list[QSARScore]:
     return top
 
 
+def _predictions_too_flat(scores: list[QSARScore], top_n: int = 5) -> bool:
+    if len(scores) < top_n:
+        return False
+    sample = scores[: max(top_n * 4, top_n)]
+    frrw = [s.predicted_frrw for s in sample]
+    frro = [s.predicted_frro for s in sample]
+    if len(set(frrw)) < 3 or len(set(frro)) < 3:
+        return True
+    return (max(frrw) - min(frrw) < 0.12) or (max(frro) - min(frro) < 0.12)
+
+
 def _rule_based_qsar(
     descriptors: list[DescriptorResult],
     qspr_scores: list[QSPRScore],
@@ -269,6 +280,8 @@ def _sklearn_qsar_fallback(
         ))
 
     top = _finalize_top(results, top_n)
+    if _predictions_too_flat(top, top_n):
+        return _rule_based_qsar(descriptors, qspr_scores, top_n, reservoir)
     return top, {
         "tool": "scikit-learn QSAR (calibrated on patent composition)",
         "input": len(mol_ids),
@@ -359,6 +372,8 @@ def run_deepchem_qsar(
         ))
 
     top = _finalize_top(results, top_n)
+    if _predictions_too_flat(top, top_n):
+        return _rule_based_qsar(descriptors, qspr_scores, top_n, reservoir)
     return top, {
         "tool": "DeepChem MultitaskRegressor + patent-calibrated labels",
         "input": len(mol_ids),

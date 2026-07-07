@@ -5,10 +5,13 @@ from __future__ import annotations
 import streamlit as st
 
 from sl_helpers import deliverable_context, generate_reports_zip, file_download_bytes
+from sl_webui import setup_page
 from vodopritok.models import OUTPUT_DIR
 from vodopritok.reports import generate_all_deliverables
 
-st.header("Отчёты и deliverables")
+setup_page("reports", "Отчёты")
+
+st.markdown("### Отчёты и deliverables")
 
 ctx = deliverable_context()
 if not ctx:

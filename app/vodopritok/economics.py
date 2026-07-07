@@ -412,6 +412,19 @@ def build_opex_plan(ctx: ProjectContext) -> dict:
         ),
     }
     plan_core["competency_evidence"] = build_competency_evidence(plan_core)
+    from .decision_tree import recommend_technologies
+    from .environmental_impact import build_environmental_impact
+
+    tech_id = "hrpm"
+    primary = recommend_technologies(r, top_n=1)
+    if primary:
+        tech_id = primary[0].technology_id
+    plan_core["environmental_impact"] = build_environmental_impact(
+        analysis,
+        tech_id=tech_id,
+        wc_before=r.water_cut_pct,
+        wc_after=wc_after,
+    )
     return plan_core
 
 

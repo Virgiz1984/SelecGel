@@ -14,11 +14,30 @@ from sl_helpers import (
     recommend_technologies,
     reservoir_from_form,
     run_screening,
-    top5_dataframe,
+    top5_table_html,
+    upload_lab_csv,
 )
-from st_charts import render_screening_charts
+from sl_webui import (
+    charts_from_payload,
+    eco_defaults_from_form,
+    ml_pipeline_badges,
+    render_economics_sliders,
+    render_risk_dashboard,
+    screening_charts_widget,
+    setup_page,
+)
 
-st.header("Скрининг 500 → top-5")
+setup_page("screening", "Screening")
+
+st.markdown(
+    """
+    <section class="card">
+      <h2>Виртуальный screening</h2>
+      <p class="muted">Параметры пласта заказчика → конвейер, top-5, экономика и one-pager для встречи.</p>
+    </section>
+    """,
+    unsafe_allow_html=True,
+)
 
 defaults = form_defaults()
 session = load_session()
@@ -32,7 +51,7 @@ with st.form("reservoir_form"):
         field_name = st.text_input("Месторождение", defaults.get("field_name", ""))
         well_name = st.text_input("Скважина", defaults.get("well_name", ""))
         temperature_c = st.number_input("T, °C", value=float(defaults.get("temperature_c", 85)))
-        salinity_g_l = st.number_input("Мineralization, g/L", value=float(defaults.get("salinity_g_l", 130)))
+        salinity_g_l = st.number_input("Mineralization, g/L", value=float(defaults.get("salinity_g_l", 130)))
         permeability_md = st.number_input("Проницаемость, mD", value=float(defaults.get("permeability_md", 450)))
     with c2:
         company = st.text_input("Заказчик", company_default)
@@ -54,7 +73,7 @@ with st.form("reservoir_form"):
         )
         has_fracture = st.checkbox("Есть трещины / каналы", value=bool(defaults.get("has_fracture")))
 
-    run = st.form_submit_button("Запустить конвейер", type="primary")
+    run = st.form_submit_button("Запустить (500 → top-5)", type="primary")
 
 form = {
     "field_name": field_name,
@@ -75,18 +94,36 @@ recs = recommend_technologies(reservoir, top_n=3)
 lib = library_stats(500)
 rd_tracks = rd_track_strategy(reservoir)
 
-st.subheader("Патентная библиотека")
-lc1, lc2, lc3 = st.columns(3)
-lc1.metric("Молекул", lib["count"])
-lc2.metric("Классов", len(lib["classes"]))
-lc3.metric("Патентов", lib["unique_patents"])
+st.markdown("### Lab CSV (калибровка QSPRpred)")
+st.caption("Колонки: rank, frrw, frro, … — rank сопоставляется с top-5.")
+uploaded = st.file_uploader("Загрузить CSV", type=["csv"], key="lab_csv")
+if uploaded is not None:
+    if st.button("Загрузить и пересчитать"):
+        upload_lab_csv(uploaded.getvalue())
+        st.session_state.pop("screening_payload", None)
+        st.success("Lab CSV загружен — QSPRpred пересчитан.")
+        st.rerun()
+
+st.markdown(
+    f"""
+    <section class="card">
+      <h2>Патентная библиотека</h2>
+      <p class="muted">{lib.get("description", "")}</p>
+      <div class="kpi-row">
+        <span class="kpi"><strong>{lib["count"]}</strong> SMILES</span>
+        <span class="kpi"><strong>{lib["unique_patents"]}</strong> patent refs</span>
+      </div>
+    </section>
+    """,
+    unsafe_allow_html=True,
+)
 
 if run:
     with st.spinner("QSPR → QSAR → top-5…"):
         try:
             payload = run_screening(form, expert, company)
             st.session_state["screening_payload"] = payload
-            st.success("Конвейер завершён, сессия сохранена.")
+            st.success("Результат сохранён — данные подставятся в 6 .docx.")
         except Exception as exc:
             st.error(str(exc))
 
@@ -95,11 +132,23 @@ if not payload and session and session.get("pipeline"):
     st.info("Показаны данные из последней сохранённой сессии. Нажмите «Запустить» для пересчёта.")
     payload = payload_from_session(session, reservoir, recs, lib)
 
-render_screening_charts(payload, recs)
+charts = charts_from_payload(payload, recs)
+screening_charts_widget(charts)
 
 if payload:
-    st.subheader("Двухтрековая стратегия R&D")
-    st.caption(rd_tracks.get("screening_note", ""))
+    render_risk_dashboard(payload.get("risk_dashboard"))
+    render_economics_sliders(eco_defaults_from_form(form, recs))
+    ml_pipeline_badges(payload.get("stages", []))
+
+    st.markdown(
+        f"""
+        <section class="card highlight">
+          <h2>Двухтрековая стратегия R&D</h2>
+          <p class="muted">{rd_tracks.get("screening_note", "")}</p>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
     tc1, tc2 = st.columns(2)
     t1 = rd_tracks.get("track1")
     t2 = rd_tracks.get("track2")
@@ -108,9 +157,22 @@ if payload:
     with tc2:
         st.markdown(f"**Track 2 — backup**  \n{t2.name_ru if t2 else '—'}  \n{t2.track if t2 else ''}")
 
-    st.subheader("Top-5 для лаборатории")
-    st.dataframe(top5_dataframe(payload["top5"]), width="stretch", hide_index=True)
+    comparison = payload.get("comparison")
+    if comparison and comparison.get("after"):
+        before_m = comparison.get("before", {}).get("mape")
+        after_m = comparison.get("after", {}).get("mape")
+        if before_m is not None and after_m is not None:
+            st.caption(f"QSPRpred MAPE: {before_m}% → {after_m}% после lab CSV")
+
+    st.markdown(top5_table_html(payload["top5"]), unsafe_allow_html=True)
 
     if payload.get("fto_rows"):
-        st.subheader("FTO / патенты")
+        st.markdown("### FTO / патентная оценка")
         st.dataframe(__import__("pandas").DataFrame(payload["fto_rows"]), width="stretch", hide_index=True)
+else:
+    st.markdown("### Рекомендация технологии (до screening)")
+    rec_rows = [
+        {"#": r.rank, "Технология": r.name_ru, "Track": r.track, "Score": f"{r.score:.0f}"}
+        for r in recs
+    ]
+    st.dataframe(__import__("pandas").DataFrame(rec_rows), width="stretch", hide_index=True)

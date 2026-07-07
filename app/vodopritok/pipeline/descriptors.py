@@ -71,15 +71,17 @@ def _check_molfeat():
         return None
 
 
-def compute_rdkit_descriptors(smiles: str) -> dict[str, float]:
+def compute_rdkit_descriptors(smiles: str, mol_id: str = "") -> dict[str, float]:
     try:
         Chem, Descriptors, rdMolDescriptors = _check_rdkit()
     except ImportError:
-        return _fallback_descriptors(smiles)
+        seed = f"{mol_id}|{smiles}" if mol_id else smiles
+        return _fallback_descriptors(seed)
 
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
-        return _fallback_descriptors(smiles)
+        seed = f"{mol_id}|{smiles}" if mol_id else smiles
+        return _fallback_descriptors(seed)
 
     return {
         "MolWt": Descriptors.MolWt(mol),
@@ -128,7 +130,7 @@ def featurize_molecules(
     results: list[DescriptorResult] = []
 
     for mol in molecules:
-        rdkit = compute_rdkit_descriptors(mol.smiles)
+        rdkit = compute_rdkit_descriptors(mol.smiles, mol.mol_id)
         mf = compute_molfeat_descriptors(mol.smiles, molfeat_calc) if use_molfeat else {}
 
         combined = {**rdkit, **mf}

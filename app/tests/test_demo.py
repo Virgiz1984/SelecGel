@@ -197,3 +197,33 @@ def test_twin_radar_uses_normalized_asymmetric_profile():
     assert len(bundle["lab"]) == 5
     frro_scores = [c["values"][1] for c in bundle["candidates"]]
     assert max(frro_scores) - min(frro_scores) >= 0.3
+
+
+def test_fallback_descriptors_differ_by_mol_id():
+    from vodopritok.pipeline.descriptors import _fallback_descriptors
+
+    d1 = _fallback_descriptors("PAT-A|CCO")
+    d2 = _fallback_descriptors("PAT-B|CCO")
+    assert d1 != d2
+
+
+def test_environmental_impact_from_opex():
+    from vodopritok.economics import OpexScenario, analyze_opex
+    from vodopritok.environmental_impact import build_environmental_impact
+
+    analysis = analyze_opex(
+        OpexScenario(
+            name="test",
+            water_cut_before_pct=82,
+            water_cut_after_pct=64,
+            oil_rate_tpd=14.5,
+        )
+    )
+    impact = build_environmental_impact(
+        analysis, tech_id="hrpm", wc_before=82, wc_after=64,
+    )
+    assert impact["water_reduction_m3_year"] > 0
+    assert impact["co2_avoided_tons_year"] > 0
+    assert impact["eco_score"] > 0
+    assert impact["hse_tier"] in ("low", "medium", "high")
+    assert impact["hse_notes"]

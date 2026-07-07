@@ -5,9 +5,12 @@ from __future__ import annotations
 import streamlit as st
 
 from sl_helpers import build_lab_program, deliverable_context, generate_lab_program_doc, file_download_bytes
+from sl_webui import setup_page
 from vodopritok.models import OUTPUT_DIR
 
-st.header("Программа лабораторных исследований")
+setup_page("lab", "Лаборатория")
+
+st.markdown("### Программа лабораторных исследований")
 
 ctx = deliverable_context()
 if not ctx:

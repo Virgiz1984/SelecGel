@@ -532,6 +532,22 @@ def generate_opex_plan_doc(ctx: ProjectContext, plan: dict, path: Path | None = 
         ],
     )
 
+    env = plan.get("environmental_impact")
+    if env:
+        _heading(doc, "4a. Экологический эффект (демо-оценка)")
+        _para(doc, env.get("methodology_note", ""))
+        _table(
+            doc,
+            ["Показатель", "Значение"],
+            [
+                ["Eco-score", f"{env['eco_score']}/100"],
+                ["Сокращение воды, m³/год", f"{env['water_reduction_m3_year']:,.0f}"],
+                ["CO₂-прокси, т/год", f"−{env['co2_avoided_tons_year']}"],
+                ["Энергия подъёма, МВт·ч/год", f"−{env['energy_savings_mwh_year']}"],
+                ["HSE-профиль", env["hse_label"]],
+            ],
+        )
+
     breakdown = plan.get("cost_breakdown", [])
     if breakdown:
         _heading(doc, "5. Структура OPEX воды")

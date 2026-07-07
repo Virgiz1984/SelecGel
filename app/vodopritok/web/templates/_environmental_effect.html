@@ -1,0 +1,26 @@
+{% if environmental_impact %}
+<section class="card env-panel highlight" id="environmental-effect-panel">
+  <div class="env-header">
+    <h2>Экологический эффект</h2>
+    <span class="env-score">Eco-score {{ environmental_impact.eco_score }}/100</span>
+  </div>
+  <p class="muted">{{ environmental_impact.methodology_note }}</p>
+  <div class="env-grid">
+    <div class="env-kpi"><span class="muted">Сокращение воды</span><strong>{{ "{:,.0f}".format(environmental_impact.water_reduction_m3_year).replace(",", " ") }} m³/год</strong></div>
+    <div class="env-kpi"><span class="muted">Меньше сброса/подготовки</span><strong>{{ "{:,.0f}".format(environmental_impact.disposal_reduction_m3_year).replace(",", " ") }} m³/год</strong></div>
+    <div class="env-kpi"><span class="muted">Энергия подъёма</span><strong>−{{ environmental_impact.energy_savings_mwh_year }} МВт·ч/год</strong></div>
+    <div class="env-kpi"><span class="muted">CO₂-прокси</span><strong>−{{ environmental_impact.co2_avoided_tons_year }} т/год</strong></div>
+    <div class="env-kpi"><span class="muted">Объём закачки (ОПР)</span><strong>{{ environmental_impact.injection_volume_m3 }} m³</strong></div>
+    <div class="env-kpi"><span class="muted">Δ WC</span><strong>{{ environmental_impact.wc_reduction_pp }} п.п.</strong></div>
+  </div>
+  <div class="env-hse">
+    <span class="env-badge tier-{{ environmental_impact.hse_tier }}">HSE: {{ environmental_impact.hse_tier_ru }}</span>
+    <span class="muted">{{ environmental_impact.hse_label }}</span>
+  </div>
+  <ul class="env-notes">
+    {% for note in environmental_impact.hse_notes %}
+    <li>{{ note }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

@@ -4,11 +4,14 @@ from __future__ import annotations
 
 import streamlit as st
 
-from sl_helpers import OpexScenario, analyze_opex, build_opex_plan, deliverable_context, generate_opex_plan_doc, file_download_bytes
+from sl_helpers import OpexScenario, analyze_opex, build_opex_plan, deliverable_context, generate_opex_plan_doc, file_download_bytes, recommend_technologies
+from sl_webui import render_environmental_effect, setup_page
 from st_charts import chart_measures, show_chart
 from vodopritok.models import OUTPUT_DIR
 
-st.header("План снижения OPEX")
+setup_page("opex", "OPEX")
+
+st.markdown("### План снижения OPEX")
 
 ctx = deliverable_context()
 if not ctx:
@@ -43,6 +46,14 @@ lc1, lc2, lc3 = st.columns(3)
 lc1.metric("NPV 3 года", f"{live.npv_3yr_rub:,.0f} ₽".replace(",", " "))
 lc2.metric("Снижение воды", f"{live.water_reduction_m3_year:,.0f} m³/год".replace(",", " "))
 lc3.metric("Чистая выгода/год", f"{live.net_annual_benefit_rub:,.0f} ₽".replace(",", " "))
+
+recs = recommend_technologies(ctx.reservoir, top_n=1)
+render_environmental_effect(
+    live,
+    tech_id=recs[0].technology_id if recs else "hrpm",
+    wc_before=wc_before,
+    wc_after=wc_after,
+)
 
 st.subheader("10 мероприятий")
 measures = sorted(plan["measures"], key=lambda m: m.get("estimated_annual_rub", 0), reverse=True)

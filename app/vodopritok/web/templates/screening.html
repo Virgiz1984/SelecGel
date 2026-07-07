@@ -195,7 +195,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initScreeningCharts({{ charts_json | safe }});
     {% if eco_defaults %}
-    initEconomicsSlider({});
+    initEconomicsSlider({{ eco_defaults | tojson }});
     ['eco-wc-before','eco-wc-after','eco-oil-rate','eco-treatment'].forEach(id => {
       const el = document.getElementById(id);
       const span = document.getElementById('v-' + id.replace('eco-','').replace('wc-before','wc-before').replace('wc-after','wc-after').replace('oil-rate','oil').replace('treatment','treat'));
