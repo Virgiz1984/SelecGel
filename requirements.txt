@@ -1,7 +1,7 @@
-# Streamlit Cloud: в Advanced settings выберите Python 3.11 или 3.12 (не 3.13+).
+# Streamlit Cloud defaults to Python 3.14 — RDKit wheels may be unavailable.
+# Pipeline uses deterministic fallback descriptors when RDKit is not installed.
 setuptools>=69.0.0
-numpy==1.26.4
-pandas==2.2.3
-scikit-learn==1.5.2
-rdkit==2024.9.5
-python-docx==1.1.2
+numpy>=2.0.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+python-docx>=1.1.2

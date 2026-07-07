@@ -30,6 +30,7 @@ from vodopritok.opr_program import build_opr_program  # noqa: E402
 from vodopritok.pipeline import export_qsprpred_json, run_cheminformatics_pipeline  # noqa: E402
 from vodopritok.pipeline.orchestrator import pipeline_to_lab_validation  # noqa: E402
 from vodopritok.pipeline.patent_library import ensure_patent_library  # noqa: E402
+from vodopritok.pipeline.descriptors import rdkit_available  # noqa: E402
 from vodopritok.reports import (  # noqa: E402
     generate_all_deliverables,
     generate_lab_program_doc,

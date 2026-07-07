@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-from sl_helpers import PITCH_POINTS, PRODUCT_NAME, PRODUCT_TAGLINE, TZ_MAPPING, form_defaults, load_session
+from sl_helpers import PITCH_POINTS, PRODUCT_NAME, PRODUCT_TAGLINE, TZ_MAPPING, form_defaults, load_session, rdkit_available
 
 st.set_page_config(
     page_title=PRODUCT_NAME,
@@ -21,6 +21,9 @@ if session and session.get("pipeline"):
     st.success("Есть сохранённая сессия скрининга — откройте **Скрининг** для результатов.")
 else:
     st.info("Начните с **Скрининга**: in silico 500 → top-5 и сохранение сессии для отчётов.")
+
+if not rdkit_available():
+    st.warning("RDKit недоступен в этом окружении — скрининг работает в demo-режиме (псевдо-дескрипторы).")
 
 col1, col2, col3 = st.columns(3)
 form = form_defaults()

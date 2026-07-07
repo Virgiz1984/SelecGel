@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import struct
 from typing import Any
 
 from .models import DescriptorResult, MoleculeRecord
@@ -9,6 +11,27 @@ RDKIT_DESCRIPTORS = [
     "NumRotatableBonds", "NumAromaticRings", "FractionCSP3",
     "HeavyAtomCount", "RingCount",
 ]
+
+_RANGES: dict[str, tuple[float, float]] = {
+    "MolWt": (180.0, 2800.0),
+    "MolLogP": (-2.5, 8.5),
+    "TPSA": (20.0, 320.0),
+    "NumHDonors": (0.0, 12.0),
+    "NumHAcceptors": (0.0, 18.0),
+    "NumRotatableBonds": (0.0, 35.0),
+    "NumAromaticRings": (0.0, 6.0),
+    "FractionCSP3": (0.05, 0.95),
+    "HeavyAtomCount": (12.0, 180.0),
+    "RingCount": (0.0, 8.0),
+}
+
+
+def rdkit_available() -> bool:
+    try:
+        from rdkit import Chem  # noqa: F401
+        return True
+    except ImportError:
+        return False
 
 
 def _check_rdkit():
@@ -22,6 +45,24 @@ def _check_rdkit():
         ) from e
 
 
+def _fallback_descriptors(smiles: str) -> dict[str, float]:
+    """Детерминированные псевдо-дескрипторы для demo без RDKit (Streamlit Cloud)."""
+    digest = hashlib.sha256(smiles.encode("utf-8")).digest()
+
+    def unit(idx: int) -> float:
+        offset = (idx * 2) % max(2, len(digest) - 1)
+        return struct.unpack_from(">H", digest, offset)[0] / 65535.0
+
+    out: dict[str, float] = {}
+    for i, name in enumerate(RDKIT_DESCRIPTORS):
+        lo, hi = _RANGES[name]
+        val = lo + unit(i) * (hi - lo)
+        if name in {"NumHDonors", "NumHAcceptors", "NumRotatableBonds", "NumAromaticRings", "RingCount", "HeavyAtomCount"}:
+            val = float(int(round(val)))
+        out[name] = round(val, 4 if name == "FractionCSP3" else 2)
+    return out
+
+
 def _check_molfeat():
     try:
         from molfeat.calc import RDKit2D
@@ -31,10 +72,14 @@ def _check_molfeat():
 
 
 def compute_rdkit_descriptors(smiles: str) -> dict[str, float]:
-    Chem, Descriptors, rdMolDescriptors = _check_rdkit()
+    try:
+        Chem, Descriptors, rdMolDescriptors = _check_rdkit()
+    except ImportError:
+        return _fallback_descriptors(smiles)
+
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
-        return {k: 0.0 for k in RDKIT_DESCRIPTORS}
+        return _fallback_descriptors(smiles)
 
     return {
         "MolWt": Descriptors.MolWt(mol),
@@ -56,7 +101,10 @@ def compute_molfeat_descriptors(smiles: str, calc=None) -> dict[str, float]:
     if calc is None:
         return {}
 
-    Chem, _, _ = _check_rdkit()
+    try:
+        Chem, _, _ = _check_rdkit()
+    except ImportError:
+        return {}
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return {}

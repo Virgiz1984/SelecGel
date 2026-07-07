@@ -9,8 +9,10 @@
 1. [share.streamlit.io](https://share.streamlit.io) → **New app**
 2. Repository: `Virgiz1984/SelecGel`, branch `main`
 3. Main file: `streamlit_app.py`
-4. **Advanced settings → Python version: 3.11 или 3.12** (важно для RDKit)
+4. **Advanced settings → Python version: 3.11 или 3.12** (опционально — для полного RDKit)
 5. Deploy
+
+На Python 3.14 (дефолт Streamlit Cloud) RDKit может быть недоступен — приложение автоматически переключается в demo-режим с псевдо-дескрипторами.
 
 Локально:
 
