@@ -5,8 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from sl_helpers import build_synthesis_assessment, deliverable_context, generate_synthesis_assessment_doc, file_download_bytes
-from sl_webui import setup_page
-from st_charts import chart_feasibility, show_chart
+from sl_webui import render_feasibility_chart, setup_page
 from vodopritok.models import OUTPUT_DIR
 
 setup_page("chem", "Хемоинформатика")
@@ -30,7 +29,7 @@ c2.metric("Рекомендовано к синтезу", assessment["recommende
 c3.metric("FTO low-risk", sum(1 for a in items if a["fto_risk"] == "low"))
 c4.metric("Мономеров OK", sum(1 for m in monomers if m.get("fit_note") == "OK"))
 
-show_chart(chart_feasibility(items))
+render_feasibility_chart(items)
 
 st.markdown("#### Детализация feasibility")
 detail_rows = [

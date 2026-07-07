@@ -41,6 +41,13 @@ def _embed_css() -> str:
     [data-testid="stSidebarCollapsedControl"] { display: none !important; }
     .block-container { padding-top: 0.5rem !important; max-width: 1100px !important; }
     header[data-testid="stHeader"] { background: transparent !important; }
+    .feas-chart { display: flex; align-items: flex-end; gap: 0.5rem; height: 240px; padding: 0.5rem 0 0; border-bottom: 1px solid var(--border); margin-top: 0.5rem; }
+    .feas-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 0; }
+    .feas-bar { width: 72%; min-height: 12px; border-radius: 4px 4px 0 0; }
+    .feas-id { font-size: 0.62rem; color: var(--muted); margin-top: 0.4rem; text-align: center; line-height: 1.2; word-break: break-word; }
+    .feas-score { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .feas-score.ok { color: var(--green); }
+    .feas-score.warn { color: #8b5cf6; }
     """
     return css + streamlit_overrides
 
@@ -296,6 +303,49 @@ def pitch_charts_from_session(session: dict | None, recs: list[Any], reservoir) 
     from vodopritok.web.viz import build_pitch_charts
 
     return build_pitch_charts(session, recs, reservoir) or {}
+
+
+def feasibility_chart_html(assessments: list[dict]) -> str:
+    """Самодостаточный HTML для iframe (не зависит от CSS страницы)."""
+    if not assessments:
+        return ""
+    items = sorted(assessments, key=lambda a: float(a.get("feasibility_score", 0)), reverse=True)
+    cols = []
+    for a in items:
+        score = float(a.get("feasibility_score", 0))
+        h = max(14, int(score / 100 * 170))
+        ok = score >= 78
+        clr = "#22c55e" if ok else "#8b5cf6"
+        rid = a.get("recipe_id", a.get("mol_id", "?"))
+        cols.append(
+            f'<div class="feas-col">'
+            f'<div class="feas-score" style="color:{clr}">{score:.0f}</div>'
+            f'<div class="feas-bar" style="height:{h}px;background:{clr}"></div>'
+            f'<div class="feas-id">{rid}</div>'
+            f"</div>"
+        )
+    bars = "".join(cols)
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+body {{ margin:0; padding:12px 8px 4px; background:#1a2332; font-family:system-ui,sans-serif; color:#e2e8f0; }}
+h2 {{ font-size:14px; font-weight:600; margin:0 0 10px; color:#f1f5f9; }}
+.feas-chart {{ display:flex; align-items:flex-end; gap:6px; height:230px; border-bottom:1px solid #334155; }}
+.feas-col {{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; min-width:0; }}
+.feas-bar {{ width:72%; min-height:12px; border-radius:4px 4px 0 0; }}
+.feas-id {{ font-size:10px; color:#94a3b8; margin-top:6px; text-align:center; line-height:1.15; word-break:break-word; }}
+.feas-score {{ font-size:13px; font-weight:700; margin-bottom:4px; }}
+</style></head><body>
+<h2>Feasibility top-5 для синтеза</h2>
+<div class="feas-chart">{bars}</div>
+</body></html>"""
+
+
+def render_feasibility_chart(assessments: list[dict]) -> None:
+    """Bar chart через iframe — стабильно на Streamlit Cloud."""
+    html = feasibility_chart_html(assessments)
+    if html:
+        components.html(html, height=340, scrolling=False)
 
 
 def render_economics_sliders(defaults: dict[str, float]) -> None:
