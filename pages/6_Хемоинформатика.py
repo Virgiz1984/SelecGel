@@ -32,6 +32,23 @@ c4.metric("Мономеров OK", sum(1 for m in monomers if m.get("fit_note") 
 
 show_chart(chart_feasibility(items))
 
+st.markdown("#### Детализация feasibility")
+detail_rows = [
+    {
+        "Rank": a["rank"],
+        "ID": a["recipe_id"],
+        "Feasibility": a["feasibility_score"],
+        "Monomer": a["monomer_score"],
+        "MW": a["mw_score"],
+        "Process": a["process_score"],
+        "FTO": a["fto_score"],
+        "QSAR+": a.get("qsar_bonus", 0),
+        "Verdict": a["verdict"],
+    }
+    for a in items
+]
+st.dataframe(__import__("pandas").DataFrame(detail_rows), width="stretch", hide_index=True)
+
 st.subheader("Top-5 feasibility")
 rows = [
     {

@@ -39,7 +39,7 @@ def top5_to_recipe_candidates(top5: list[dict], track: str = "Track 1 RPM") -> l
         meta = lookup.get(mid, {})
         cls = meta.get("class", "copolymer")
         comp = meta.get("composition") or {}
-        ratios = {k: float(v) for k, v in comp.items() if k in monomer_keys and float(v) > 0}
+        ratios = {k: float(v) for k, v in comp.items() if float(v) > 0}
         if not ratios:
             ratios = {"AM": 0.65, "AMPS": 0.25, "NVP": 0.10}
             if "PEI" in mid or cls == "crosslinker":

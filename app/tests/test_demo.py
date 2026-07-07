@@ -199,6 +199,26 @@ def test_twin_radar_uses_normalized_asymmetric_profile():
     assert max(frro_scores) - min(frro_scores) >= 0.3
 
 
+def test_synthesis_feasibility_scores_differ():
+    from vodopritok.cheminformatics import RecipeCandidate
+    from vodopritok.demo.context_builder import top5_to_recipe_candidates
+    from vodopritok.models import ReservoirCard
+    from vodopritok.synthesis_assessment import _score_synthesis_feasibility
+
+    top5 = [
+        {"mol_id": "PAT-COP-0121", "rank": 1, "predicted_frrw": 5.6, "predicted_frro": 1.8, "selectivity_index": 3.1},
+        {"mol_id": "PAT-COP-0298", "rank": 2, "predicted_frrw": 5.1, "predicted_frro": 2.0, "selectivity_index": 2.5},
+        {"mol_id": "PAT-COP-0375", "rank": 3, "predicted_frrw": 4.9, "predicted_frro": 2.2, "selectivity_index": 2.2},
+        {"mol_id": "PAT-COP-0435", "rank": 4, "predicted_frrw": 5.3, "predicted_frro": 1.9, "selectivity_index": 2.8},
+        {"mol_id": "PAT-COP-0466", "rank": 5, "predicted_frrw": 4.7, "predicted_frro": 2.3, "selectivity_index": 2.0},
+    ]
+    reservoir = ReservoirCard(temperature_c=85, salinity_g_l=130)
+    cands = top5_to_recipe_candidates(top5)
+    scores = [_score_synthesis_feasibility(c, reservoir, "low")["feasibility_score"] for c in cands]
+    assert len(set(scores)) >= 3
+    assert max(scores) - min(scores) >= 2
+
+
 def test_ensure_top5_diversity_rescues_flat():
     from vodopritok.pipeline.models import QSARScore
     from vodopritok.pipeline.qsar_deepchem import ensure_top5_diversity

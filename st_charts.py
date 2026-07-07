@@ -243,19 +243,23 @@ def chart_feasibility(assessments: list[dict]) -> alt.Chart:
             {
                 "ID": a.get("recipe_id", a.get("mol_id", "?")),
                 "Feasibility": float(a.get("feasibility_score", 0)),
+                "QSAR bonus": float(a.get("qsar_bonus", 0)),
             }
             for a in assessments
         ]
     )
+    y_min = max(0, df["Feasibility"].min() - 8)
+    y_max = min(100, df["Feasibility"].max() + 8)
     chart = (
         alt.Chart(df)
         .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
         .encode(
-            x=alt.X("ID:N", title=""),
-            y=alt.Y("Feasibility:Q", title="Score / 100", scale=alt.Scale(domain=[0, 100])),
+            x=alt.X("ID:N", title="", sort="-y"),
+            y=alt.Y("Feasibility:Q", title="Score / 100", scale=alt.Scale(domain=[y_min, y_max])),
             color=alt.condition(alt.datum.Feasibility >= 78, alt.value("#22c55e"), alt.value("#8b5cf6")),
+            tooltip=["ID", "Feasibility", "QSAR bonus"],
         )
-        .properties(height=280, title="Feasibility top-5 для синтеза")
+        .properties(height=300, title="Feasibility top-5 для синтеза")
     )
     return _apply_theme(chart)
 

@@ -63,22 +63,19 @@ def _score_synthesis_feasibility(
     monomers = _monomer_db()
     ratios = candidate.monomer_ratios
 
-    rf_ok = all(monomers.get(k, {}).get("available_rf", True) for k in ratios)
-    import_deps = [k for k in ratios if not monomers.get(k, {}).get("available_rf", True)]
-    monomer_score = 92 if rf_ok else max(45, 92 - 15 * len(import_deps))
+    rf_ok = all(monomers.get(k, {}).get("available_rf", True) for k in ratios if k in monomers)
+    import_deps = [k for k in ratios if k in monomers and not monomers[k].get("available_rf", True)]
+    exotic = [k for k in ratios if k not in monomers]
+    monomer_score = 92 if rf_ok and not exotic else max(45, 92 - 12 * len(import_deps) - 4 * len(exotic))
 
     mw = candidate.target_mw_kda
-    if mw <= 1200:
-        mw_score = 88
-    elif mw <= 1800:
-        mw_score = 72
-    else:
-        mw_score = 58
+    mw_score = max(55, min(92, 94 - abs(mw - 1280) / 22))
 
     cd = abs(candidate.charge_density)
     salinity_ok = reservoir.salinity_g_l <= 160 or cd >= 0.25
-    thermal_ok = reservoir.temperature_c <= 95 or candidate.hydrophobe_pct <= 10
-    process_score = 85 if salinity_ok and thermal_ok else 65
+    thermal_ok = reservoir.temperature_c <= 95 or candidate.hydrophobe_pct <= 12
+    hydro_penalty = max(0, candidate.hydrophobe_pct - 10) * 0.8
+    process_score = max(55, (85 if salinity_ok and thermal_ok else 65) - hydro_penalty)
 
     if fto_risk == "low":
         fto_score = 90
@@ -89,7 +86,22 @@ def _score_synthesis_feasibility(
     else:
         fto_score = 75
 
-    total = round(monomer_score * 0.35 + mw_score * 0.25 + process_score * 0.2 + fto_score * 0.2, 0)
+    qsar_bonus = 0.0
+    if candidate.predicted_frrw >= 5.0 and candidate.predicted_frro <= 2.0:
+        qsar_bonus += 5.0
+    qsar_bonus += min(5.0, max(-2.0, (candidate.predicted_frrw - 4.8) * 2.5))
+    qsar_bonus += min(3.0, max(-3.0, (2.1 - candidate.predicted_frro) * 2.0))
+    qsar_bonus += min(4.0, candidate.predicted_score * 0.6)
+    qsar_bonus += max(0.0, (6 - candidate.rank) * 0.9)
+
+    total = (
+        monomer_score * 0.30
+        + mw_score * 0.22
+        + process_score * 0.18
+        + fto_score * 0.18
+        + qsar_bonus * 0.12
+    )
+    total = round(max(52, min(96, total)), 0)
     if total >= 78:
         verdict = "Рекомендован к синтезу"
         verdict_class = "ok"
@@ -101,6 +113,8 @@ def _score_synthesis_feasibility(
         verdict_class = "warn"
 
     notes: list[str] = []
+    if exotic:
+        notes.append(f"Экзотические мономеры в составе: {', '.join(exotic)} — проверить supply")
     if import_deps:
         notes.append(f"Импортные мономеры: {', '.join(import_deps)} — рассмотреть замену")
     if mw > 1500:
@@ -121,6 +135,7 @@ def _score_synthesis_feasibility(
         "mw_score": mw_score,
         "process_score": process_score,
         "fto_score": fto_score,
+        "qsar_bonus": round(qsar_bonus, 1),
         "verdict": verdict,
         "verdict_class": verdict_class,
         "fto_risk": fto_risk,
