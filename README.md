@@ -9,7 +9,8 @@
 1. [share.streamlit.io](https://share.streamlit.io) → **New app**
 2. Repository: `Virgiz1984/SelecGel`, branch `main`
 3. Main file: `streamlit_app.py`
-4. Deploy
+4. **Advanced settings → Python version: 3.11 или 3.12** (важно для RDKit)
+5. Deploy
 
 Локально:
 
