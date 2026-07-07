@@ -10,6 +10,7 @@ from sl_helpers import (
     library_stats,
     load_session,
     mechanisms,
+    payload_from_session,
     recommend_technologies,
     reservoir_from_form,
     run_screening,
@@ -90,33 +91,7 @@ if run:
 payload = st.session_state.get("screening_payload")
 if not payload and session and session.get("pipeline"):
     st.info("Показаны данные из последней сохранённой сессии. Нажмите «Запустить» для пересчёта.")
-    from dataclasses import asdict
-
-    from vodopritok.demo.context_builder import build_fto_rows
-    from vodopritok.demo.risk_dashboard import build_risk_dashboard
-    from vodopritok.pipeline.models import PipelineResult, PipelineStage, QSARScore, QSPRScore
-
-    pipe = session["pipeline"]
-    stages = [PipelineStage(**s) for s in pipe.get("stages", [])]
-    top5 = [QSARScore(**t) for t in pipe.get("top5", [])]
-    result = PipelineResult(
-        stages=stages,
-        top5=top5,
-        qspr_candidates=[],
-        total_input=pipe.get("total_input", 500),
-        library_path=pipe.get("library_path", ""),
-    )
-    top5_dicts = pipe.get("top5", [])
-    payload = {
-        "result": result,
-        "top5": top5_dicts,
-        "recommendations": recs,
-        "fto_rows": build_fto_rows(top5_dicts),
-        "risk_dashboard": build_risk_dashboard(
-            reservoir, top5_dicts, recs, stages=pipe.get("stages", [])
-        ),
-        "library_stats": pipe.get("library_stats") or lib,
-    }
+    payload = payload_from_session(session, reservoir, recs, lib)
 
 st.subheader("Рекомендация технологий")
 tech_df = __import__("pandas").DataFrame(
@@ -125,9 +100,8 @@ tech_df = __import__("pandas").DataFrame(
 st.bar_chart(tech_df.set_index("Технология")["Score"])
 
 if payload:
-    result = payload["result"]
     st.subheader("Воронка конвейера")
-    stages = [s if isinstance(s, dict) else __import__("dataclasses").asdict(s) for s in result.stages]
+    stages = payload.get("stages", [])
     funnel = funnel_dataframe(stages, top_n=len(payload["top5"]))
     st.bar_chart(funnel.set_index("Этап")["Молекул"])
 

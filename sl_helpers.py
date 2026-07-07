@@ -155,7 +155,7 @@ def run_screening(form: dict[str, Any], expert: str, company: str) -> dict[str, 
         fto_rows=fto,
     )
     return {
-        "result": result,
+        "stages": [asdict(s) for s in result.stages],
         "top5": top5_dicts,
         "validation": validation,
         "comparison": comparison,
@@ -164,6 +164,34 @@ def run_screening(form: dict[str, Any], expert: str, company: str) -> dict[str, 
         "fto_rows": fto,
         "risk_dashboard": risk,
         "library_stats": summary.get("library_stats"),
+    }
+
+
+def payload_from_session(
+    session: dict[str, Any],
+    reservoir: ReservoirCard,
+    recs: list[Any],
+    lib_stats: dict[str, Any],
+) -> dict[str, Any] | None:
+    pipe = session.get("pipeline")
+    if not pipe:
+        return None
+    top5_dicts = pipe.get("top5", [])
+    if not top5_dicts:
+        return None
+    stages = pipe.get("stages", [])
+    return {
+        "stages": stages,
+        "top5": top5_dicts,
+        "recommendations": recs,
+        "fto_rows": build_fto_rows(top5_dicts),
+        "risk_dashboard": build_risk_dashboard(
+            reservoir,
+            top5_dicts,
+            recs,
+            stages=stages,
+        ),
+        "library_stats": pipe.get("library_stats") or lib_stats,
     }
 
 
