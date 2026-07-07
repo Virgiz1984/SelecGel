@@ -27,27 +27,41 @@ def _mol_lookup() -> dict[str, dict]:
 
 def top5_to_recipe_candidates(top5: list[dict], track: str = "Track 1 RPM") -> list[RecipeCandidate]:
     lookup = _mol_lookup()
+    try:
+        with (Path(__file__).resolve().parent.parent / "data" / "monomers.json").open(encoding="utf-8") as f:
+            monomer_keys = {m["id"] for m in json.load(f).get("monomers", [])}
+    except Exception:
+        monomer_keys = {"AM", "AMPS", "NVP", "ATAC", "PEI", "AA", "DMDAAC", "DAC"}
+
     candidates: list[RecipeCandidate] = []
     for i, mol in enumerate(top5):
         mid = mol.get("mol_id", f"MOL-{i+1}")
         meta = lookup.get(mid, {})
         cls = meta.get("class", "copolymer")
-        ratios = {"AM": 0.65, "AMPS": 0.25, "NVP": 0.10}
-        if "PEI" in mid:
-            ratios = {"PEI": 0.8, "AMPS": 0.2}
+        comp = meta.get("composition") or {}
+        ratios = {k: float(v) for k, v in comp.items() if k in monomer_keys and float(v) > 0}
+        if not ratios:
+            ratios = {"AM": 0.65, "AMPS": 0.25, "NVP": 0.10}
+            if "PEI" in mid or cls == "crosslinker":
+                ratios = {"PEI": 0.8, "AMPS": 0.2}
+            elif "ATAC" in mid:
+                ratios = {"AM": 0.55, "ATAC": 0.25, "AMPS": 0.20}
+
+        rank = int(mol.get("rank", i + 1))
+        seed = sum(ord(c) for c in mid)
         candidates.append(RecipeCandidate(
             recipe_id=mid,
             name_ru=meta.get("name", mid),
             track=track,
             monomer_ratios=ratios,
-            target_mw_kda=1200 + i * 100,
-            concentration_pct=1.5 + i * 0.1,
-            charge_density=-0.3,
-            hydrophobe_pct=8.0 + i,
+            target_mw_kda=1050 + rank * 85 + (seed % 7) * 35,
+            concentration_pct=1.4 + rank * 0.12 + (seed % 5) * 0.05,
+            charge_density=-0.38 + (seed % 9) * 0.025,
+            hydrophobe_pct=6.0 + rank * 1.1 + (seed % 6) * 0.8,
             predicted_frrw=float(mol.get("predicted_frrw", 5)),
             predicted_frro=float(mol.get("predicted_frro", 2)),
             predicted_score=float(mol.get("selectivity_index", mol.get("qsar_score", 5))),
-            rank=int(mol.get("rank", i + 1)),
+            rank=rank,
             hypothesis=f"In silico selectivity ({cls}); patent {meta.get('patent_ref', '—')}",
         ))
     return candidates

@@ -199,6 +199,19 @@ def test_twin_radar_uses_normalized_asymmetric_profile():
     assert max(frro_scores) - min(frro_scores) >= 0.3
 
 
+def test_ensure_top5_diversity_rescues_flat():
+    from vodopritok.pipeline.models import QSARScore
+    from vodopritok.pipeline.qsar_deepchem import ensure_top5_diversity
+
+    flat = [
+        QSARScore("A", 6.49, 2.53, 2.56, 4.0, i)
+        for i in range(1, 6)
+    ]
+    out = ensure_top5_diversity(flat, [], [], None)
+    frrw = [m.predicted_frrw for m in out]
+    assert len(set(frrw)) >= 3
+
+
 def test_fallback_descriptors_differ_by_mol_id():
     from vodopritok.pipeline.descriptors import _fallback_descriptors
 

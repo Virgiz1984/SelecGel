@@ -14,6 +14,7 @@ from sl_helpers import (
     recommend_technologies,
     reservoir_from_form,
     run_screening,
+    top5_predictions_flat,
     top5_table_html,
     upload_lab_csv,
 )
@@ -136,6 +137,11 @@ charts = charts_from_payload(payload, recs)
 screening_charts_widget(charts)
 
 if payload:
+    if top5_predictions_flat(payload.get("top5", [])):
+        st.warning(
+            "Прогнозы top-5 выглядят одинаковыми (старая сессия или ML fallback). "
+            "Нажмите **«Запустить (500 → top-5)»** ещё раз для пересчёта."
+        )
     render_risk_dashboard(payload.get("risk_dashboard"))
     render_economics_sliders(eco_defaults_from_form(form, recs))
     ml_pipeline_badges(payload.get("stages", []))

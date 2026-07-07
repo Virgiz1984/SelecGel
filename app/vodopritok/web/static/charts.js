@@ -77,24 +77,32 @@ function renderTop5(id, data) {
 }
 
 function renderSelectivity(id, data) {
+  const vals = data.selectivity || [];
+  const minV = vals.length ? Math.min(...vals) : 0;
+  const maxV = vals.length ? Math.max(...vals) : 3;
+  const spread = maxV - minV;
+  const pad = spread < 0.2 ? 0.35 : Math.max(0.15, spread * 0.2);
   mountChart(id, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels: data.labels,
       datasets: [{
         label: 'Selectivity index',
-        data: data.selectivity,
-        borderColor: '#22c55e',
-        backgroundColor: 'rgba(34,197,94,0.15)',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 5,
+        data: vals,
+        backgroundColor: '#22c55e',
+        borderRadius: 4,
       }],
     },
     options: {
       responsive: true,
-      plugins: { title: { display: true, text: 'Индекс селективности', color: '#e8edf4' } },
-      scales: { y: { beginAtZero: true } },
+      plugins: { title: { display: true, text: 'Индекс селективности', color: '#e8edf4' }, legend: { display: false } },
+      scales: {
+        y: {
+          min: Math.max(0, minV - pad),
+          max: maxV + pad,
+          grid: { color: '#2d3a4f' },
+        },
+      },
     },
   });
 }
@@ -118,17 +126,27 @@ function renderTechScores(id, data) {
 }
 
 function renderQsprpred(id, data) {
+  const pts = data.predicted.map((p, i) => ({ x: p, y: data.observed[i] }));
+  const xs = pts.map((p) => p.x);
+  const ys = pts.map((p) => p.y);
+  const xSpread = Math.max(...xs) - Math.min(...xs);
+  const ySpread = Math.max(...ys) - Math.min(...ys);
+  const zoom = xSpread < 0.35 || ySpread < 0.35;
+  const xMin = zoom ? Math.min(...xs) - 0.9 : 0;
+  const xMax = zoom ? Math.max(...xs) + 0.9 : 10;
+  const yMin = zoom ? Math.min(...ys) - 0.9 : 0;
+  const yMax = zoom ? Math.max(...ys) + 0.9 : 10;
   mountChart(id, {
     type: 'scatter',
     data: {
       datasets: [{
         label: 'Predicted vs Observed (Frrw)',
-        data: data.predicted.map((p, i) => ({ x: p, y: data.observed[i] })),
+        data: pts,
         backgroundColor: '#3b82f6',
         pointRadius: 7,
       }, {
         label: 'Ideal y=x',
-        data: [{ x: 0, y: 0 }, { x: 10, y: 10 }],
+        data: [{ x: xMin, y: xMin }, { x: xMax, y: xMax }],
         type: 'line',
         borderColor: '#22c55e',
         borderDash: [4, 4],
@@ -139,8 +157,8 @@ function renderQsprpred(id, data) {
       responsive: true,
       plugins: { title: { display: true, text: 'QSPRpred: прогноз vs лаборатория', color: '#e8edf4' } },
       scales: {
-        x: { title: { display: true, text: 'Predicted' } },
-        y: { title: { display: true, text: 'Observed' } },
+        x: { title: { display: true, text: 'Predicted' }, min: xMin, max: xMax },
+        y: { title: { display: true, text: 'Observed' }, min: yMin, max: yMax },
       },
     },
   });

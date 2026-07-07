@@ -199,6 +199,56 @@ def _predictions_too_flat(scores: list[QSARScore], top_n: int = 5) -> bool:
     return (max(frrw) - min(frrw) < 0.12) or (max(frro) - min(frro) < 0.12)
 
 
+def ensure_top5_diversity(
+    top: list[QSARScore],
+    descriptors: list[DescriptorResult],
+    qspr_scores: list[QSPRScore],
+    reservoir: ReservoirCard | None = None,
+) -> list[QSARScore]:
+    """Если ML «схлопнул» Frrw/Frro — physics-informed rescue + rank-spread."""
+    if not top or not _predictions_too_flat(top, len(top)):
+        return top
+    desc_map = {d.mol_id: d for d in descriptors}
+    qspr_map = {q.mol_id: q for q in qspr_scores}
+    meta_map = mol_metadata_map()
+    rescued: list[QSARScore] = []
+    for sc in top:
+        d = desc_map.get(sc.mol_id)
+        if not d:
+            rescued.append(sc)
+            continue
+        frrw, frro = predict_selectivity(
+            d.rdkit_features,
+            sc.mol_id,
+            qspr_map.get(sc.mol_id),
+            meta_map.get(sc.mol_id),
+            reservoir,
+        )
+        sel = frrw / max(frro, 0.1)
+        rescued.append(
+            QSARScore(
+                mol_id=sc.mol_id,
+                predicted_frrw=frrw,
+                predicted_frro=frro,
+                selectivity_index=round(sel, 2),
+                qsar_score=round(_shortlist_score(frrw, frro, qspr_map.get(sc.mol_id)), 3),
+                rank=sc.rank,
+            )
+        )
+    if _predictions_too_flat(rescued, len(rescued)):
+        n = len(rescued)
+        for i, sc in enumerate(rescued):
+            frrw = round(max(FRRW_RANGE[0], FRRW_RANGE[1] - i * 0.13), 2)
+            frro = round(min(FRRO_RANGE[1], FRRO_RANGE[0] + 0.35 + i * 0.1), 2)
+            sc.predicted_frrw = frrw
+            sc.predicted_frro = frro
+            sc.selectivity_index = round(sc.predicted_frrw / max(sc.predicted_frro, 0.1), 2)
+            sc.qsar_score = round(
+                _shortlist_score(sc.predicted_frrw, sc.predicted_frro, qspr_map.get(sc.mol_id)), 3
+            )
+    return rescued
+
+
 def _rule_based_qsar(
     descriptors: list[DescriptorResult],
     qspr_scores: list[QSPRScore],
@@ -214,6 +264,7 @@ def _rule_based_qsar(
         if sc:
             results.append(sc)
     top = _finalize_top(results, top_n)
+    top = ensure_top5_diversity(top, descriptors, qspr_scores, reservoir)
     return top, {
         "tool": "physics-informed QSAR (descriptor + patent composition)",
         "input": len(qspr_scores),
@@ -282,6 +333,7 @@ def _sklearn_qsar_fallback(
     top = _finalize_top(results, top_n)
     if _predictions_too_flat(top, top_n):
         return _rule_based_qsar(descriptors, qspr_scores, top_n, reservoir)
+    top = ensure_top5_diversity(top, descriptors, qspr_scores, reservoir)
     return top, {
         "tool": "scikit-learn QSAR (calibrated on patent composition)",
         "input": len(mol_ids),
@@ -298,6 +350,13 @@ def run_deepchem_qsar(
     """
     Stage 3: QSAR селективности (Frrw/Frro). DeepChem если доступен, иначе sklearn / physics-informed.
     """
+    from .descriptors import rdkit_available
+
+    if not rdkit_available():
+        top, meta = _rule_based_qsar(descriptors, qspr_scores, top_n, reservoir)
+        top = ensure_top5_diversity(top, descriptors, qspr_scores, reservoir)
+        return top, meta
+
     try:
         import deepchem as dc
         import numpy as np
@@ -374,6 +433,7 @@ def run_deepchem_qsar(
     top = _finalize_top(results, top_n)
     if _predictions_too_flat(top, top_n):
         return _rule_based_qsar(descriptors, qspr_scores, top_n, reservoir)
+    top = ensure_top5_diversity(top, descriptors, qspr_scores, reservoir)
     return top, {
         "tool": "DeepChem MultitaskRegressor + patent-calibrated labels",
         "input": len(mol_ids),

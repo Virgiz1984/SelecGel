@@ -87,22 +87,23 @@ def chart_selectivity(top5: list[dict]) -> alt.Chart:
     df = pd.DataFrame(
         [
             {
-                "Rank": int(mol.get("rank", i + 1)),
                 "mol_id": mol.get("mol_id", f"M{i}"),
                 "Селективность": float(mol.get("selectivity_index", 0)),
             }
             for i, mol in enumerate(top5)
         ]
     )
+    y_min = max(0, df["Селективность"].min() - 0.25)
+    y_max = df["Селективность"].max() + 0.25
     chart = (
         alt.Chart(df)
-        .mark_line(color="#22c55e", point=alt.OverlayMarkDef(color="#22c55e", size=70))
+        .mark_bar(color="#22c55e", cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
         .encode(
-            x=alt.X("Rank:O", title="Rank"),
-            y=alt.Y("Селективность:Q", title="Selectivity index"),
+            x=alt.X("mol_id:N", title="", sort=None),
+            y=alt.Y("Селективность:Q", title="Selectivity index", scale=alt.Scale(domain=[y_min, y_max])),
             tooltip=["mol_id", "Селективность"],
         )
-        .properties(height=220, title="Индекс селективности")
+        .properties(height=240, title="Индекс селективности")
     )
     return _apply_theme(chart)
 
@@ -169,10 +170,13 @@ def chart_qsprpred_scatter(validation: dict | None) -> alt.Chart | None:
             "mol_id": [r.mol_id for r in rows],
         }
     )
-    ideal = pd.DataFrame({"Predicted": [0, 10], "Observed": [0, 10]})
+    pad = 0.5
+    x0, x1 = df["Predicted"].min() - pad, df["Predicted"].max() + pad
+    y0, y1 = df["Observed"].min() - pad, df["Observed"].max() + pad
+    ideal = pd.DataFrame({"Predicted": [x0, x1], "Observed": [x0, x1]})
     scatter = alt.Chart(df).mark_circle(size=100, color="#3b82f6").encode(
-        x=alt.X("Predicted:Q", scale=alt.Scale(domain=[0, 10])),
-        y=alt.Y("Observed:Q", scale=alt.Scale(domain=[0, 10])),
+        x=alt.X("Predicted:Q", scale=alt.Scale(domain=[max(0, x0), min(10, x1)])),
+        y=alt.Y("Observed:Q", scale=alt.Scale(domain=[max(0, y0), min(10, y1)])),
         tooltip=["mol_id", "Predicted", "Observed"],
     )
     line = alt.Chart(ideal).mark_line(color="#22c55e", strokeDash=[6, 4]).encode(
@@ -248,10 +252,10 @@ def chart_feasibility(assessments: list[dict]) -> alt.Chart:
         .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
         .encode(
             x=alt.X("ID:N", title=""),
-            y=alt.Y("Feasibility:Q", title="Score / 100"),
+            y=alt.Y("Feasibility:Q", title="Score / 100", scale=alt.Scale(domain=[0, 100])),
             color=alt.condition(alt.datum.Feasibility >= 78, alt.value("#22c55e"), alt.value("#8b5cf6")),
         )
-        .properties(height=260, title="Feasibility top-5 для синтеза")
+        .properties(height=280, title="Feasibility top-5 для синтеза")
     )
     return _apply_theme(chart)
 

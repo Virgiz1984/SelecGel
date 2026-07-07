@@ -8,7 +8,7 @@ from vodopritok.models import ReservoirCard
 from .descriptors import featurize_molecules
 from .models import MoleculeRecord, PipelineResult, PipelineStage
 from .patent_library import ensure_patent_library
-from .qsar_deepchem import run_deepchem_qsar
+from .qsar_deepchem import ensure_top5_diversity, run_deepchem_qsar
 from .qspr_sklearn import run_qspr_screening
 from .qsprpred_report import build_qsprpred_report, export_qsprpred_json
 
@@ -78,6 +78,7 @@ def run_cheminformatics_pipeline(
 
     # Stage 3
     top5, qsar_meta = run_deepchem_qsar(descriptors, qspr_kept, top_n=top_n, reservoir=reservoir)
+    top5 = ensure_top5_diversity(top5, descriptors, qspr_kept, reservoir)
     filtered_pct = round((1 - len(top5) / max(len(molecules), 1)) * 100, 1)
     stage3 = PipelineStage(
         name="QSAR selectivity",

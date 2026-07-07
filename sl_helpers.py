@@ -225,6 +225,14 @@ def top5_dataframe(top5: list[dict]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def top5_predictions_flat(top5: list[dict]) -> bool:
+    if len(top5) < 2:
+        return False
+    frrw = [round(float(m.get("predicted_frrw", 0)), 2) for m in top5]
+    frro = [round(float(m.get("predicted_frro", 0)), 2) for m in top5]
+    return len(set(frrw)) < 3 or len(set(frro)) < 3
+
+
 def top5_table_html(top5: list[dict]) -> str:
     """HTML-таблица как на FastAPI /screening."""
     rows = []
