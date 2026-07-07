@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="grid-2">
+    <div class="card">
+      <h2>Модуль 4 — Промысловая обратная связь</h2>
+      {% if success %}<p class="success">Feedback сохранён. Модели будут дообучены при ≥5 записях.</p>{% endif %}
+      <form method="post" action="/feedback/submit" class="form">
+        <div class="form-row"><label>Well<input name="well_name" required></label><label>mol_id<input name="mol_id" required></label></div>
+        <div class="form-row"><label>WC до %<input type="number" name="water_cut_before_pct" value="82"></label><label>WC после %<input type="number" name="water_cut_after_pct" value="64"></label></div>
+        <div class="form-row"><label>Qn до<input type="number" step="0.1" name="oil_rate_before_tpd" value="14"></label><label>Qn после<input type="number" step="0.1" name="oil_rate_after_tpd" value="14.5"></label></div>
+        <label>Notes<textarea name="notes" rows="2"></textarea></label>
+        <button type="submit" class="btn primary">Upload field data</button>
+      </form>
+    </div>
+    <div class="stats">
+      <div class="stat-card accent"><span class="stat-label">Records</span><span class="stat-value">{{ analytics.count }}</span></div>
+      <div class="stat-card"><span class="stat-label">Avg WC drop</span><span class="stat-value">{{ analytics.avg_wc_reduction }} pp</span></div>
+      <div class="stat-card green"><span class="stat-label">Success rate</span><span class="stat-value">{{ analytics.success_rate_pct }}%</span></div>
+      <div class="stat-card"><span class="stat-label">Retrain</span><span class="stat-value">{% if analytics.retrain_ready %}Ready{% else %}Pending{% endif %}</span></div>
+    </div>
+  </section>
+  {% if records %}
+  <section class="card">
+    <h2>History</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Well</th><th>mol_id</th><th>WC Δ</th><th>Date</th></tr></thead>
+      <tbody>
+        {% for r in records %}
+        <tr><td>{{ r.feedback_id }}</td><td>{{ r.well_name }}</td><td>{{ r.mol_id }}</td>
+            <td>{{ "%.0f"|format(r.water_cut_before_pct - r.water_cut_after_pct) }} pp</td><td>{{ r.treatment_date }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}

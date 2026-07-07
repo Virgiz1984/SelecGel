@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>Цифровой профиль реагента</h2>
+    <p class="muted">Сравнение Top-5 in silico, lab overlay ({{ lab_count }} строк CSV) и gate по 5 осям.</p>
+  </section>
+
+  {% if twins %}
+  <script type="application/json" id="selecgel-twin-charts">{{ twin_charts_json | safe }}</script>
+  <section class="card chart-panel">
+    <div class="radar-toolbar" id="radar-toolbar">
+      <div class="radar-toggles">
+        <span class="muted">Кандидаты:</span>
+        {% for twin in twins %}
+        <label class="radar-toggle">
+          <input type="checkbox" data-radar-candidate="{{ loop.index }}" {% if loop.index == 1 %}checked{% endif %}
+                 onchange="window._twinRadarCtrl && window._twinRadarCtrl.render()">
+          #{{ loop.index }} {{ twin.mol_id }}
+        </label>
+        {% endfor %}
+      </div>
+      <div class="radar-actions">
+        <label class="radar-toggle">
+          <input type="checkbox" id="radar-lab-toggle" checked
+                 onchange="window._twinRadarCtrl && window._twinRadarCtrl.render()"> Lab overlay
+        </label>
+        <button type="button" class="btn small secondary" onclick="window._twinRadarExport && window._twinRadarExport()">PNG</button>
+      </div>
+    </div>
+    <div class="chart-grid">
+      <div class="card chart-box chart-box-tall"><canvas id="chart-twin-radar"></canvas></div>
+      <div class="card chart-box"><canvas id="chart-twin-eco"></canvas></div>
+    </div>
+    <div id="radar-gate-summary" class="radar-summary"></div>
+    <p class="muted" style="margin-top:0.75rem;font-size:0.85rem">
+      Наведите на точку — увидите норм. балл и сырое значение (Frrw, Frro, T°C). Пунктир Lab — данные из CSV по rank.
+    </p>
+  </section>
+  {% endif %}
+
+  {% for twin in twins %}
+  <section class="card twin-card">
+    <div class="twin-header">
+      <h3>#{{ loop.index }} · {{ twin.mol_id }}</h3>
+      <span class="confidence">Confidence {{ twin.confidence_score }}%</span>
+    </div>
+    <p>{{ twin.recommendation }}</p>
+    <button type="button" class="btn small secondary" data-radar-focus="{{ loop.index }}">Показать на radar</button>
+    <div class="grid-2" style="margin-top:0.75rem">
+      <div>
+        <h4>Свойства (прогноз)</h4>
+        <ul class="kpi-list">
+          {% for k, v in twin.predicted_properties.items() %}
+          <li><strong>{{ k }}:</strong> {{ v }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h4>Lab gate</h4>
+        <ul class="kpi-list">
+          {% for k, v in twin.lab_gate.items() %}
+          <li>{{ k }}: {{ v }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <section class="card"><p class="muted">Сначала <a href="/screening">запустите screening</a>.</p></section>
+  {% endfor %}
+</main>
+{% endblock %}

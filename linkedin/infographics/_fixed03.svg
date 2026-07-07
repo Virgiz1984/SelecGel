@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <rect width="1200" height="900" fill="#F8FAFC"/>
+  <text x="600" y="55" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="34" font-weight="bold">0:>9 <5E0=87< >12>4=5=8O  B0:0O B5E=>;>38O</text>
+  <text x="600" y="92" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="20">Decision tree 4;O 2K1>@0 A5;5:B82=>3> </text>
+
+  <!-- Root -->
+  <rect x="420" y="120" width="360" height="70" rx="35" fill="#0B1F3A"/>
+  <text x="600" y="163" text-anchor="middle" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">B:C40 2>40 2 A:2068=5?</text>
+  <line x1="600" y1="190" x2="600" y2="230" stroke="#94A3B8" stroke-width="3"/>
+
+  <!-- Branch lines -->
+  <line x1="600" y1="230" x2="200" y2="280" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="600" y1="230" x2="600" y2="280" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="600" y1="230" x2="1000" y2="280" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="600" y1="230" x2="200" y2="580" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="600" y1="230" x2="1000" y2="580" stroke="#94A3B8" stroke-width="2"/>
+
+  <!-- Row 1 mechanisms -->
+  <g>
+    <rect x="60" y="280" width="280" height="90" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+    <text x="200" y="318" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Coning C </text>
+    <text x="200" y="348" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">matrix flow, ?5AG0=8:</text>
+
+    <rect x="460" y="280" width="280" height="90" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+    <text x="600" y="318" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Channeling</text>
+    <text x="600" y="348" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">B@5I8=0, wormhole, streak</text>
+
+    <rect x="860" y="280" width="280" height="90" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+    <text x="1000" y="318" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Cross-flow</text>
+    <text x="1000" y="348" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16"><564C ?@>?;0AB:0<8</text>
+  </g>
+
+  <!-- Arrows down -->
+  <polygon points="200,385 190,405 210,405" fill="#64748B"/>
+  <polygon points="600,385 590,405 610,405" fill="#64748B"/>
+  <polygon points="1000,385 990,405 1010,405" fill="#64748B"/>
+  <line x1="200" y1="370" x2="200" y2="405" stroke="#64748B" stroke-width="2"/>
+  <line x1="600" y1="370" x2="600" y2="405" stroke="#64748B" stroke-width="2"/>
+  <line x1="1000" y1="370" x2="1000" y2="405" stroke="#64748B" stroke-width="2"/>
+
+  <!-- Row 2 solutions -->
+  <g>
+    <rect x="60" y="410" width="280" height="110" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+    <text x="200" y="450" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="22" font-weight="bold">RPM</text>
+    <text x="200" y="480" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">A5;5:B82=K9 A;>9 =0 ?>@5</text>
+    <text x="200" y="505" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">bullhead-70:0G:0</text>
+
+    <rect x="460" y="410" width="280" height="110" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+    <text x="600" y="450" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="22" font-weight="bold">PPG / RPPG</text>
+    <text x="600" y="480" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">G0AB8FK � ?@>1:0 2 :0=0;5</text>
+    <text x="600" y="505" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">perm &gt; 1 D</text>
+
+    <rect x="860" y="410" width="280" height="110" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+    <text x="1000" y="450" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="22" font-weight="bold">In-depth gel / CDG</text>
+    <text x="1000" y="480" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">?5@5@0A?@545;5=85 ?>B>:>2</text>
+    <text x="1000" y="505" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">3;C18==>5 @07<5I5=85</text>
+  </g>
+
+  <!-- Bottom row extra cases -->
+  <g>
+    <rect x="60" y="580" width="280" height="90" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+    <text x="200" y="618" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">HTHS + bottom water</text>
+    <text x="200" y="648" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">307>2K5 A:2068=K</text>
+
+    <rect x="860" y="580" width="280" height="90" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+    <text x="1000" y="618" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">0@1>=0B, oil-wet</text>
+    <text x="1000" y="648" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">A<5=0 A<0G8205<>AB8</text>
+  </g>
+
+  <polygon points="200,685 190,705 210,705" fill="#64748B"/>
+  <polygon points="1000,685 990,705 1010,705" fill="#64748B"/>
+  <line x1="200" y1="670" x2="200" y2="705" stroke="#64748B" stroke-width="2"/>
+  <line x1="1000" y1="670" x2="1000" y2="705" stroke="#64748B" stroke-width="2"/>
+
+  <rect x="60" y="710" width="280" height="100" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+  <text x="200" y="750" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Nano-PEI gel</text>
+  <text x="200" y="780" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">110�C+, 160 g/L salinity</text>
+
+  <rect x="860" y="710" width="280" height="100" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+  <text x="1000" y="750" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="20" font-weight="bold">AMPS-RPM / PPG film</text>
+  <text x="1000" y="780" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="15">+ wettability modifier</text>
+
+  <!-- Warning box -->
+  <rect x="360" y="590" width="480" height="200" rx="16" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+  <text x="600" y="630" text-anchor="middle" fill="#991B1B" font-family="Arial,sans-serif" font-size="22" font-weight="bold"> %"</text>
+  <text x="600" y="665" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="17">RPM =0 >B:@KBCN B@5I8=C</text>
+  <text x="600" y="695" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="17">Bulk gel 157 7>=0;L=>9 87>;OF88 ?@8 coning</text>
+  <text x="600" y="725" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="17">�#=825@A0;L=K9 @5035=B� 157 core flood</text>
+  <text x="600" y="770" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="15">Success rate = candidate selection (SPE 165091)</text>
+
+  <text x="600" y="870" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="16">!=0G0;0 <5E0=87< � ?>B>< :;0AA B5E=>;>388 � ?>B>< @5F5?BC@0</text>
+</svg>

@@ -1,0 +1,23 @@
+{% if opex_plan %}
+<section class="card">
+  <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem">
+    <h2 style="margin:0">План снижения OPEX</h2>
+    <a href="/opex-plan" class="btn small secondary">Подробнее</a>
+    <a href="/export/opex-plan" class="btn small primary">Скачать .docx</a>
+  </div>
+  <div class="eco-grid">
+    <div class="eco-kpi"><span class="muted">Экономия/год</span><strong>{{ "{:,.0f}".format(opex_plan.analysis.annual_savings_rub).replace(",", " ") }} ₽</strong></div>
+    <div class="eco-kpi"><span class="muted">Payback</span><strong>{{ opex_plan.analysis.payback_months }} мес</strong></div>
+    <div class="eco-kpi"><span class="muted">Мероприятий</span><strong>{{ opex_plan.measures|length }}</strong></div>
+    <div class="eco-kpi"><span class="muted">Потенциал</span><strong>{{ "{:,.0f}".format(opex_plan.total_potential_rub).replace(",", " ") }} ₽</strong></div>
+  </div>
+  <table style="margin-top:0.75rem">
+    <thead><tr><th>Категория</th><th>Мероприятие</th><th>₽/год</th></tr></thead>
+    <tbody>
+      {% for m in opex_plan.measures[:5] %}
+      <tr><td>{{ m.category }}</td><td>{{ m.measure }}</td><td>{{ "{:,.0f}".format(m.estimated_annual_rub).replace(",", " ") }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}

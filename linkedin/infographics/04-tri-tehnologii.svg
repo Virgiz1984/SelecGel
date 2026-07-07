@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680">
+  <rect width="1200" height="680" fill="#F8FAFC"/>
+  <text x="600" y="55" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="34" font-weight="bold">3 технологии, которые стоит знать</text>
+  <text x="600" y="92" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="20">Даже если вы не химик</text>
+  <rect x="40" y="130" width="350" height="500" rx="18" fill="#FFF" stroke="#2E86AB" stroke-width="3"/>
+  <rect x="40" y="130" width="350" height="70" rx="18" fill="#2E86AB"/>
+  <text x="215" y="175" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="28" font-weight="bold">RPM</text>
+  <text x="215" y="240" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="17">Слой на стенке поры</text>
+  <text x="70" y="310" fill="#16A34A" font-family="Arial,sans-serif" font-size="16" font-weight="bold">✓ Работает:</text>
+  <text x="70" y="340" fill="#334155" font-family="Arial,sans-serif" font-size="15">coning, matrix flow</text>
+  <text x="70" y="390" fill="#DC2626" font-family="Arial,sans-serif" font-size="16" font-weight="bold">✗ Не работает:</text>
+  <text x="70" y="420" fill="#334155" font-family="Arial,sans-serif" font-size="15">открытые трещины</text>
+  <rect x="425" y="130" width="350" height="500" rx="18" fill="#FFF" stroke="#C8860A" stroke-width="3"/>
+  <rect x="425" y="130" width="350" height="70" rx="18" fill="#C8860A"/>
+  <text x="600" y="175" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">Термотропный гель</text>
+  <text x="600" y="240" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="17">Жидкое → твёрдое в пласте</text>
+  <text x="455" y="310" fill="#16A34A" font-family="Arial,sans-serif" font-size="16" font-weight="bold">✓ Работает:</text>
+  <text x="455" y="340" fill="#334155" font-family="Arial,sans-serif" font-size="15">HTHS, сложная геология</text>
+  <text x="455" y="390" fill="#DC2626" font-family="Arial,sans-serif" font-size="16" font-weight="bold">✗ Не работает:</text>
+  <text x="455" y="420" fill="#334155" font-family="Arial,sans-serif" font-size="15">без данных по T пласта</text>
+  <rect x="810" y="130" width="350" height="500" rx="18" fill="#FFF" stroke="#7C3AED" stroke-width="3"/>
+  <rect x="810" y="130" width="350" height="70" rx="18" fill="#7C3AED"/>
+  <text x="985" y="175" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="28" font-weight="bold">RPPG</text>
+  <text x="985" y="240" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="17">Частицы → монолитная пробка</text>
+  <text x="840" y="310" fill="#16A34A" font-family="Arial,sans-serif" font-size="16" font-weight="bold">✓ Работает:</text>
+  <text x="840" y="340" fill="#334155" font-family="Arial,sans-serif" font-size="15">fracture, wormhole</text>
+  <text x="840" y="390" fill="#DC2626" font-family="Arial,sans-serif" font-size="16" font-weight="bold">✗ Не работает:</text>
+  <text x="840" y="420" fill="#334155" font-family="Arial,sans-serif" font-size="15">matrix coning без канала</text>
+</svg>

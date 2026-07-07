@@ -1,0 +1,19 @@
+{
+  "field_name": "Месторождение Западная Сибирь",
+  "well_name": "Well-101",
+  "temperature_c": 85.0,
+  "pressure_mpa": 18.0,
+  "salinity_g_l": 130.0,
+  "ca2_mg_l": 600.0,
+  "lithology": "sandstone",
+  "wettability": "water_wet",
+  "permeability_md": 450.0,
+  "porosity_pct": 19.5,
+  "water_mechanism": "coning",
+  "water_cut_pct": 82.0,
+  "oil_rate_tpd": 14.5,
+  "water_rate_m3pd": 52.0,
+  "api_gravity": 21.0,
+  "has_fracture": false,
+  "previous_ovp": ""
+}

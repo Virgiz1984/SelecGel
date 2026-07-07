@@ -1,0 +1,5926 @@
+{
+  "description": "Патентная библиотека мономеров/олigomerов для ОВП screening",
+  "count": 500,
+  "molecules": [
+    {
+      "mol_id": "PAT-AM",
+      "smiles": "C=CC(=O)N",
+      "name": "AM",
+      "class": "monomer",
+      "patent_ref": "US4286082",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-AMPS",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS",
+      "class": "monomer",
+      "patent_ref": "US4498995",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-NVP",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP",
+      "class": "monomer",
+      "patent_ref": "US4391925",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-AA",
+      "smiles": "C=CC(=O)O",
+      "name": "AA",
+      "class": "monomer",
+      "patent_ref": "US3642617",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-ATAC",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC",
+      "class": "monomer",
+      "patent_ref": "CN102443825",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-HEMA",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA",
+      "class": "monomer",
+      "patent_ref": "US5654279",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-DAC",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC",
+      "class": "monomer",
+      "patent_ref": "US4187196",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-PEI_frag",
+      "smiles": "NCCNCCN",
+      "name": "PEI_frag",
+      "class": "crosslinker",
+      "patent_ref": "US20160229801",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-citrate",
+      "smiles": "OC(=O)CC(O)(CC(=O)O)C(=O)O",
+      "name": "citrate",
+      "class": "crosslinker",
+      "patent_ref": "US5874381",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-formamide",
+      "smiles": "NC=O",
+      "name": "formamide",
+      "class": "additive",
+      "patent_ref": "RU2523456",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-acrylate_C4",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4",
+      "class": "hydrophobe",
+      "patent_ref": "US6153706",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-acrylate_C8",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8",
+      "class": "hydrophobe",
+      "patent_ref": "US6153706",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-acrylate_C12",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12",
+      "class": "hydrophobe",
+      "patent_ref": "US6153706",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-vinylsulfonate",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate",
+      "class": "monomer",
+      "patent_ref": "EP0344027",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-DMDAAC",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC",
+      "class": "monomer",
+      "patent_ref": "US4781846",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-MBA",
+      "smiles": "C=CC(=O)NC(=O)C=C",
+      "name": "MBA",
+      "class": "crosslinker",
+      "patent_ref": "US4498995",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-TMEDA",
+      "smiles": "CN(C)CCN(C)C",
+      "name": "TMEDA",
+      "class": "activator",
+      "patent_ref": "US5874381",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-silicate",
+      "smiles": "[Si](O)(O)[O-]",
+      "name": "silicate",
+      "class": "gelator",
+      "patent_ref": "RU2445678",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-furfuryl",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl",
+      "class": "monomer",
+      "patent_ref": "US20130118502",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-styrene",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene",
+      "class": "monomer",
+      "patent_ref": "US4187196",
+      "source": "building_block"
+    },
+    {
+      "mol_id": "PAT-COP-0020",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "vinylsulfonate-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0021",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "AA-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0022",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0023",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0024",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0025",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "AA-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0026",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C4-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "acrylate_C12": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0027",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "AM-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0028",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0029",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0030",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "AMPS-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "HEMA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0031",
+      "smiles": "C=CC(=O)N",
+      "name": "furfuryl-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "AM": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0032",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0033",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "vinylsulfonate-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "acrylate_C12": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0034",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "DMDAAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0035",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "furfuryl-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0036",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0037",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "HEMA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0038",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0039",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "vinylsulfonate-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "styrene": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0040",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0041",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0042",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.7,
+        "furfuryl": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0043",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "AM-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0044",
+      "smiles": "C=CC(=O)O",
+      "name": "AMPS-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.9,
+        "AA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0045",
+      "smiles": "C=CC(=O)O",
+      "name": "HEMA-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0046",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "acrylate_C4": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0047",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "AA-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0048",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "acrylate_C12": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0049",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "DAC-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.75,
+        "HEMA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0050",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0051",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AM-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0052",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "furfuryl-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0053",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "DAC-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0054",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "acrylate_C8-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0055",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AM-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.7,
+        "vinylsulfonate": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0056",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "acrylate_C8-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0057",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "HEMA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0058",
+      "smiles": "C=CC(=O)N",
+      "name": "acrylate_C4-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0059",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "furfuryl-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "NVP": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0060",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0061",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0062",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "furfuryl-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "NVP": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0063",
+      "smiles": "C=CC(=O)N",
+      "name": "acrylate_C8-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "AM": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0064",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AM-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0065",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0066",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0067",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C4-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0068",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "NVP-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0069",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0070",
+      "smiles": "C=CC(=O)O",
+      "name": "DAC-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "AA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0071",
+      "smiles": "C=CC(=O)O",
+      "name": "DMDAAC-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "AA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0072",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "vinylsulfonate-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "styrene": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0073",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0074",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "AMPS-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0075",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0076",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "vinylsulfonate": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0077",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "AM-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0078",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0079",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "NVP-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0080",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "AA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "furfuryl": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0081",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0082",
+      "smiles": "C=CC(=O)OC",
+      "name": "HEMA-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0083",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0084",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0085",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0086",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0087",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0088",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "vinylsulfonate-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "acrylate_C8": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0089",
+      "smiles": "C=CC(=O)O",
+      "name": "furfuryl-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.75,
+        "AA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0090",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C4-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0091",
+      "smiles": "C=CC(=O)OC",
+      "name": "NVP-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "DAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0092",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "furfuryl": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0093",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "DMDAAC-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0094",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0095",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0096",
+      "smiles": "C=CC(=O)N",
+      "name": "HEMA-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0097",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0098",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0099",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AMPS-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0100",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C12-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.9,
+        "AA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0101",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C12-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0102",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "acrylate_C8": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0103",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0104",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "DAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0105",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "furfuryl-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0106",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C12-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0107",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "acrylate_C8-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0108",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "AA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0109",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C4-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "acrylate_C8": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0110",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0111",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "acrylate_C8": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0112",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0113",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0114",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "ATAC-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0115",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0116",
+      "smiles": "C=CC(=O)N",
+      "name": "ATAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0117",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0118",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0119",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C4-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0120",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "AMPS-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0121",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "styrene-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0122",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "DAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.7,
+        "NVP": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0123",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0124",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "vinylsulfonate": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0125",
+      "smiles": "C=CC(=O)OC",
+      "name": "acrylate_C8-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0126",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AA-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0127",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AM-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0128",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0129",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "furfuryl-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "DMDAAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0130",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.75,
+        "acrylate_C4": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0131",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "acrylate_C4-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "HEMA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0132",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.75,
+        "AA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0133",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0134",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "AMPS-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0135",
+      "smiles": "C=CC(=O)OC",
+      "name": "acrylate_C8-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0136",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0137",
+      "smiles": "C=CC(=O)N",
+      "name": "ATAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0138",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "HEMA-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0139",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C8-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0140",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "AA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0141",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "AM-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0142",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "DMDAAC-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0143",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AMPS-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0144",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "vinylsulfonate-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0145",
+      "smiles": "C=CC(=O)OC",
+      "name": "vinylsulfonate-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0146",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0147",
+      "smiles": "C=CC(=O)OC",
+      "name": "vinylsulfonate-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "DAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0148",
+      "smiles": "C=CC(=O)OC",
+      "name": "ATAC-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0149",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "ATAC-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0150",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "acrylate_C12-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "styrene": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0151",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "acrylate_C4-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0152",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "furfuryl-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0153",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "ATAC-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0154",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "styrene-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0155",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0156",
+      "smiles": "C=CC(=O)O",
+      "name": "AM-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0157",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "furfuryl-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0158",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "vinylsulfonate-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0159",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0160",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "vinylsulfonate-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "DMDAAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0161",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "styrene-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.7,
+        "furfuryl": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0162",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AA-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "NVP": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0163",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C8-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0164",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0165",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "acrylate_C12-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "HEMA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0166",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0167",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C8-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "acrylate_C4": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0168",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "acrylate_C4-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "styrene": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0169",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0170",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "acrylate_C4": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0171",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0172",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0173",
+      "smiles": "C=CC(=O)O",
+      "name": "NVP-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0174",
+      "smiles": "C=CC(=O)O",
+      "name": "DMDAAC-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0175",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "HEMA-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0176",
+      "smiles": "C=CC(=O)OC",
+      "name": "AA-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0177",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "acrylate_C12-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.7,
+        "DMDAAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0178",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "acrylate_C12": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0179",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "HEMA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0180",
+      "smiles": "C=CC(=O)OC",
+      "name": "styrene-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0181",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "acrylate_C8-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0182",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C4-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "AA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0183",
+      "smiles": "C=CC(=O)OC",
+      "name": "AM-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0184",
+      "smiles": "C=CC(=O)OC",
+      "name": "furfuryl-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.75,
+        "DAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0185",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0186",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "DAC-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0187",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0188",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.7,
+        "NVP": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0189",
+      "smiles": "C=CC(=O)O",
+      "name": "HEMA-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0190",
+      "smiles": "C=CC(=O)OC",
+      "name": "furfuryl-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0191",
+      "smiles": "C=CC(=O)OC",
+      "name": "styrene-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0192",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.9,
+        "AM": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0193",
+      "smiles": "C=CC(=O)O",
+      "name": "HEMA-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0194",
+      "smiles": "C=CC(=O)N",
+      "name": "vinylsulfonate-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0195",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "AM": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0196",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "NVP-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0197",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "AA-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0198",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "NVP-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0199",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "DMDAAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0200",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "AMPS-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0201",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "acrylate_C12-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0202",
+      "smiles": "C=CC(=O)O",
+      "name": "DMDAAC-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0203",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0204",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "furfuryl-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0205",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0206",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0207",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0208",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0209",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "HEMA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0210",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "DAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "NVP": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0211",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "ATAC-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0212",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0213",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0214",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C4-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0215",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0216",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "styrene-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.75,
+        "HEMA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0217",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0218",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "acrylate_C12-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0219",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0220",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0221",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0222",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0223",
+      "smiles": "C=CC(=O)O",
+      "name": "DMDAAC-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "AA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0224",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "HEMA-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0225",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DAC-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0226",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0227",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0228",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0229",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0230",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0231",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "AA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0232",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0233",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0234",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "acrylate_C8-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0235",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0236",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "acrylate_C12-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0237",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.7,
+        "NVP": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0238",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0239",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0240",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "AM": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0241",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "acrylate_C12-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0242",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "AMPS-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0243",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0244",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0245",
+      "smiles": "C=CC(=O)OC",
+      "name": "acrylate_C12-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0246",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "AM-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0247",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0248",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0249",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AMPS-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.7,
+        "NVP": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0250",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "acrylate_C12": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0251",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "AA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "ATAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0252",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C4-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0253",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "furfuryl-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0254",
+      "smiles": "C=CC(=O)OC",
+      "name": "AA-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "DAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0255",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "vinylsulfonate-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0256",
+      "smiles": "C=CC(=O)N",
+      "name": "AMPS-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "AM": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0257",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "acrylate_C12-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0258",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C4-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0259",
+      "smiles": "C=CC(=O)OC",
+      "name": "DMDAAC-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0260",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "acrylate_C4-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.7,
+        "styrene": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0261",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DAC-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0262",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AM-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0263",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0264",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "furfuryl-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0265",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "furfuryl-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0266",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0267",
+      "smiles": "C=CC(=O)OC",
+      "name": "acrylate_C12-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0268",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "acrylate_C4-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "HEMA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0269",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "vinylsulfonate-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0270",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0271",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0272",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "AMPS-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "HEMA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0273",
+      "smiles": "C=CC(=O)OC",
+      "name": "furfuryl-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0274",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AM-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0275",
+      "smiles": "C=CC(=O)O",
+      "name": "AM-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.9,
+        "AA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0276",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0277",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0278",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0279",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "vinylsulfonate-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0280",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "ATAC-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.7,
+        "acrylate_C8": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0281",
+      "smiles": "C=CC(=O)O",
+      "name": "AMPS-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.7,
+        "AA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0282",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AMPS-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0283",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "DMDAAC-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0284",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0285",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.85,
+        "NVP": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0286",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0287",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "ATAC-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "furfuryl": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0288",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "acrylate_C8": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0289",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "ATAC-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0290",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "acrylate_C12-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0291",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C4-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0292",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "acrylate_C8-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0293",
+      "smiles": "C=CC(=O)O",
+      "name": "HEMA-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.75,
+        "AA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0294",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "furfuryl": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0295",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0296",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "vinylsulfonate-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0297",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AM-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.9,
+        "NVP": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0298",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0299",
+      "smiles": "C=CC(=O)N",
+      "name": "acrylate_C4-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.75,
+        "AM": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0300",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "vinylsulfonate-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "NVP": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0301",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "ATAC-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0302",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "vinylsulfonate-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0303",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.85,
+        "acrylate_C8": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0304",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "vinylsulfonate-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.85,
+        "DMDAAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0305",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0306",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "vinylsulfonate-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0307",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "DAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0308",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0309",
+      "smiles": "C=CC(=O)N",
+      "name": "furfuryl-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0310",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "DAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0311",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0312",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "AMPS-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "acrylate_C12": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0313",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0314",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "acrylate_C4-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0315",
+      "smiles": "C=CC(=O)N",
+      "name": "vinylsulfonate-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.85,
+        "AM": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0316",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0317",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "HEMA-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.8,
+        "acrylate_C12": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0318",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DAC-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0319",
+      "smiles": "C=CC(=O)O",
+      "name": "ATAC-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0320",
+      "smiles": "C=CC(=O)O",
+      "name": "AMPS-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0321",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "ATAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0322",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0323",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "acrylate_C12-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.7,
+        "vinylsulfonate": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0324",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0325",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "acrylate_C12": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0326",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "AA-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "acrylate_C12": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0327",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "DMDAAC-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0328",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "vinylsulfonate-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "styrene": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0329",
+      "smiles": "C=CC(=O)N",
+      "name": "acrylate_C4-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.9,
+        "AM": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0330",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "NVP-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0331",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0332",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "acrylate_C8-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0333",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "ATAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0334",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "acrylate_C4-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0335",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.7,
+        "furfuryl": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0336",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AMPS-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0337",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "DMDAAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0338",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "acrylate_C8": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0339",
+      "smiles": "C=CC(=O)N",
+      "name": "DAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0340",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "acrylate_C4-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "HEMA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0341",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0342",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "AA-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0343",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0344",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AMPS-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0345",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0346",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "AM-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "styrene": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0347",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "AMPS-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0348",
+      "smiles": "C=CC(=O)OC",
+      "name": "NVP-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0349",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "DMDAAC-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0350",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "DMDAAC-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "styrene": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0351",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "vinylsulfonate-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0352",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0353",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "AA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0354",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0355",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0356",
+      "smiles": "C=CC(=O)O",
+      "name": "AA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "AMPS": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0357",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0358",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0359",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0360",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0361",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "AA-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "styrene": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0362",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0363",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0364",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "AMPS": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0365",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0366",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0367",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0368",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "AMPS-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0369",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0370",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "AA-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0371",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0372",
+      "smiles": "C=CC(=O)N",
+      "name": "vinylsulfonate-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0373",
+      "smiles": "C=CC(=O)OC",
+      "name": "styrene-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0374",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.85,
+        "DMDAAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0375",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0376",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "ATAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0377",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "acrylate_C8-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0378",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "acrylate_C8": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0379",
+      "smiles": "C=CC(=O)OC",
+      "name": "acrylate_C12-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.7,
+        "DAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0380",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "AMPS-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0381",
+      "smiles": "C=CC(=O)OC",
+      "name": "AA-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0382",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "DAC-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.85,
+        "HEMA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0383",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "DMDAAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0384",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "vinylsulfonate-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "ATAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0385",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "acrylate_C4": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0386",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "styrene": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0387",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "DMDAAC-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "HEMA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0388",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0389",
+      "smiles": "C=CC(=O)OC",
+      "name": "AMPS-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "DAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0390",
+      "smiles": "C=CC(=O)OC",
+      "name": "furfuryl-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "DAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0391",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "ATAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0392",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C8-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "AA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0393",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0394",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "HEMA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0395",
+      "smiles": "C=CC(=O)OC",
+      "name": "furfuryl-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0396",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "acrylate_C12": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0397",
+      "smiles": "C=CC(=O)N",
+      "name": "acrylate_C8-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "AM": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0398",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0399",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "ATAC-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0400",
+      "smiles": "C=CC(=O)N",
+      "name": "HEMA-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.75,
+        "AM": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0401",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0402",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.7,
+        "vinylsulfonate": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0403",
+      "smiles": "C=CC(=O)O",
+      "name": "acrylate_C8-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.85,
+        "AA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0404",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "HEMA-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0405",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0406",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "AM-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0407",
+      "smiles": "C=CC(=O)N",
+      "name": "AM-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.7,
+        "vinylsulfonate": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0408",
+      "smiles": "C=CC(=O)OC",
+      "name": "vinylsulfonate-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0409",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "DAC-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0410",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.85,
+        "HEMA": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0411",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "vinylsulfonate-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0412",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0413",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.7,
+        "AM": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0414",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "AA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.75,
+        "furfuryl": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0415",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0416",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "DMDAAC-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.75,
+        "DAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0417",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "acrylate_C8-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.75,
+        "DMDAAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0418",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.8,
+        "vinylsulfonate": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0419",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "styrene-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.7,
+        "DMDAAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0420",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C4-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0421",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0422",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0423",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0424",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "styrene-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0425",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "DAC-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.7,
+        "acrylate_C8": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0426",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.8,
+        "DMDAAC": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0427",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "furfuryl-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "NVP": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0428",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0429",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "furfuryl-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.8,
+        "HEMA": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0430",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0431",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0432",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "furfuryl": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0433",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "furfuryl-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0434",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "acrylate_C12-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0435",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "acrylate_C12-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0436",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "HEMA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0437",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "acrylate_C4-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "styrene": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0438",
+      "smiles": "C=CC(=O)N",
+      "name": "acrylate_C12-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0439",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0440",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "HEMA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.7,
+        "ATAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0441",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "styrene-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0442",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0443",
+      "smiles": "C=C(C[N+](C)(C)C)Cl",
+      "name": "furfuryl-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.7,
+        "DMDAAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0444",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "furfuryl-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.75,
+        "acrylate_C12": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0445",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C4-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0446",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C4-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0447",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "acrylate_C8": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0448",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "DMDAAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.85,
+        "acrylate_C4": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0449",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "acrylate_C12-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.8,
+        "NVP": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0450",
+      "smiles": "C=CC(=O)OC",
+      "name": "ATAC-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "DAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0451",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "vinylsulfonate-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "acrylate_C12": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0452",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0453",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.85,
+        "vinylsulfonate": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0454",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "DMDAAC-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.9,
+        "vinylsulfonate": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0455",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "HEMA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0456",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0457",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "DMDAAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.8,
+        "AMPS": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0458",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "vinylsulfonate-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0459",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0460",
+      "smiles": "C=CC(=O)OC",
+      "name": "vinylsulfonate-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.9,
+        "DAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0461",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "HEMA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.75,
+        "ATAC": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0462",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.85,
+        "furfuryl": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0463",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.7,
+        "styrene": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0464",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "furfuryl-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0465",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "DMDAAC": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0466",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "HEMA-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0467",
+      "smiles": "C=CC(=O)OC",
+      "name": "DAC-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.75,
+        "NVP": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0468",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "DMDAAC-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4781846+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "DMDAAC": 0.9,
+        "furfuryl": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0469",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-DMDAAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US4781846",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "DMDAAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0470",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "HEMA-vinylsulfonate",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+EP0344027",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.75,
+        "vinylsulfonate": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0471",
+      "smiles": "CCCCCCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C12-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C12": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0472",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "AA-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0473",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "AA-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.9,
+        "HEMA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0474",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "acrylate_C4-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0475",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "acrylate_C8-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.85,
+        "styrene": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0476",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "styrene-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "AA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0477",
+      "smiles": "C=CC(=O)N",
+      "name": "ATAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.85,
+        "AM": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0478",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "acrylate_C8-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0479",
+      "smiles": "C=CC(=O)NC(CCC[N+](C)(C)C)Cl",
+      "name": "ATAC-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.75,
+        "AMPS": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0480",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "acrylate_C8-NVP",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4391925",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C8": 0.85,
+        "NVP": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0481",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "AA-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.8,
+        "acrylate_C4": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0482",
+      "smiles": "C=CC(=O)N",
+      "name": "DAC-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "DAC": 0.85,
+        "AM": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0483",
+      "smiles": "C=CC(=O)OC",
+      "name": "AA-DAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US3642617+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "AA": 0.7,
+        "DAC": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0484",
+      "smiles": "C=C(C)C(=O)OCCO",
+      "name": "AM-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "US4286082+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "AM": 0.7,
+        "HEMA": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0485",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-HEMA",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US5654279",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.75,
+        "HEMA": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0486",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "ATAC-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "CN102443825+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "ATAC": 0.75,
+        "acrylate_C4": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0487",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "acrylate_C4-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "US6153706+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "acrylate_C4": 0.9,
+        "styrene": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0488",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "AM": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0489",
+      "smiles": "CCCCCCCCOC(=O)C=C",
+      "name": "NVP-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0490",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "AMPS-furfuryl",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US20130118502",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.8,
+        "furfuryl": 0.2
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0491",
+      "smiles": "C=CC(=O)N",
+      "name": "AMPS-AM",
+      "class": "copolymer_unit",
+      "patent_ref": "US4498995+US4286082",
+      "source": "combinatorial",
+      "composition": {
+        "AMPS": 0.75,
+        "AM": 0.25
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0492",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-acrylate_C12",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.85,
+        "acrylate_C12": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0493",
+      "smiles": "CCCCOC(=O)C=C",
+      "name": "styrene-acrylate_C4",
+      "class": "copolymer_unit",
+      "patent_ref": "US4187196+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "styrene": 0.9,
+        "acrylate_C4": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0494",
+      "smiles": "C=CS(=O)(=O)O",
+      "name": "vinylsulfonate-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.9,
+        "acrylate_C8": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0495",
+      "smiles": "C=CN1CCCC1=O",
+      "name": "NVP-ATAC",
+      "class": "copolymer_unit",
+      "patent_ref": "US4391925+CN102443825",
+      "source": "combinatorial",
+      "composition": {
+        "NVP": 0.85,
+        "ATAC": 0.15
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0496",
+      "smiles": "C=CC(=O)O",
+      "name": "HEMA-AA",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US3642617",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "AA": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0497",
+      "smiles": "C=CC1=CC=CC=C1",
+      "name": "vinylsulfonate-styrene",
+      "class": "copolymer_unit",
+      "patent_ref": "EP0344027+US4187196",
+      "source": "combinatorial",
+      "composition": {
+        "vinylsulfonate": 0.7,
+        "styrene": 0.3
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0498",
+      "smiles": "C=C(C)C(=O)NC(C)(C)S(=O)(=O)O",
+      "name": "HEMA-AMPS",
+      "class": "copolymer_unit",
+      "patent_ref": "US5654279+US4498995",
+      "source": "combinatorial",
+      "composition": {
+        "HEMA": 0.9,
+        "AMPS": 0.1
+      }
+    },
+    {
+      "mol_id": "PAT-COP-0499",
+      "smiles": "C1=COC(=C1)CO",
+      "name": "furfuryl-acrylate_C8",
+      "class": "copolymer_unit",
+      "patent_ref": "US20130118502+US6153706",
+      "source": "combinatorial",
+      "composition": {
+        "furfuryl": 0.9,
+        "acrylate_C8": 0.1
+      }
+    }
+  ]
+}

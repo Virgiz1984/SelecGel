@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>Программа лабораторных исследований</h2>
+    <p class="muted">Deliverable №2 по ТЗ · Track 1 (primary) + Track 2 (backup) · gate → ОПР</p>
+    {% if request.query_params.get('generated') %}
+    <p class="success">Документ сгенерирован: <code>02-programma-laboratornyh-issledovaniy.docx</code></p>
+    {% endif %}
+    {% if not has_session or not session.pipeline %}
+    <p class="warn">Сначала запустите <a href="/screening">screening</a> — top-5 подставятся в программу синтеза.</p>
+    {% endif %}
+  </section>
+
+  {% if program %}
+  <section class="grid-2">
+    <div class="card">
+      <h2>Условия пласта</h2>
+      <table>
+        <tbody>
+          <tr><td>T, °C</td><td><strong>{{ program.brine_spec.temperature_c }}</strong></td></tr>
+          <tr><td>Salinity, г/л</td><td>{{ program.brine_spec.salinity_g_l }}</td></tr>
+          <tr><td>k, мД</td><td>{{ program.brine_spec.permeability_md }}</td></tr>
+          <tr><td>Литология</td><td>{{ program.brine_spec.lithology }}</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:0.75rem">{{ program.brine_spec.brine_recipe }}</p>
+    </div>
+    <div class="card">
+      <h2>Lab progress</h2>
+      {% if program.lab_progress.has_data %}
+      <p>Источник: <code>{{ program.lab_progress.source }}</code></p>
+      <p>Gate: <strong>{{ program.lab_progress.passed }}/{{ program.lab_progress.total }}</strong> рецептур</p>
+      {% else %}
+      <p class="muted">Нет lab CSV — используйте шаблон или загрузите измерения.</p>
+      {% endif %}
+      <form method="post" action="/lab/upload" enctype="multipart/form-data" style="margin-top:0.75rem">
+        <input type="file" name="file" accept=".csv">
+        <button type="submit" class="btn secondary small" style="margin-top:0.35rem">Загрузить CSV</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Очередь синтеза</h2>
+    <table>
+      <thead><tr><th>Track</th><th>ID</th><th>Название</th><th>Состав</th><th>Приоритет</th></tr></thead>
+      <tbody>
+        {% for q in program.synthesis_queue %}
+        <tr>
+          <td><span class="tag">{{ q.track }}</span></td>
+          <td><code>{{ q.id }}</code></td>
+          <td>{{ q.name }}</td>
+          <td style="font-size:0.85rem">{{ q.composition }}</td>
+          <td>{{ q.priority }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="grid-2">
+    <div class="card">
+      <h2>Фазы и gate</h2>
+      {% for phase in program.phases %}
+      <h3 style="font-size:1rem;margin:0.75rem 0 0.35rem">{{ phase.name }}</h3>
+      <ul class="muted" style="margin:0;padding-left:1.2rem">
+        {% for task in phase.tasks[:4] %}
+        <li style="font-size:0.9rem">{{ task }}</li>
+        {% endfor %}
+      </ul>
+      <p><span class="tag ok">Gate</span> {{ phase.gate }}</p>
+      {% endfor %}
+    </div>
+    <div class="card">
+      <h2>Критерии gate (RPM)</h2>
+      <table>
+        <thead><tr><th>Метрика</th><th>Ph.1</th><th>Ph.2</th></tr></thead>
+        <tbody>
+          {% for g in program.gate_criteria %}
+          <tr><td>{{ g.metric }}</td><td>{{ g.phase1 }}</td><td>{{ g.phase2 }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Календарный план (8 недель)</h2>
+    <table>
+      <thead><tr><th>Нед.</th><th>Track 1</th><th>Track 2</th><th>Milestone</th></tr></thead>
+      <tbody>
+        {% for w in program.timeline %}
+        <tr>
+          <td>{{ w.week }}</td>
+          <td style="font-size:0.85rem">{{ w.track1 }}</td>
+          <td style="font-size:0.85rem">{{ w.track2 }}</td>
+          <td>{% if w.milestone != '—' %}<span class="tag ok">{{ w.milestone }}</span>{% else %}—{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Программа испытаний</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Испытание</th><th>Метод</th><th>N</th></tr></thead>
+      <tbody>
+        {% for t in program.tests %}
+        <tr><td>{{ t.id }}</td><td>{{ t.name }}</td><td>{{ t.method }}</td><td>{{ t.samples }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  {% if program.lab_progress.has_data and program.lab_progress.rows %}
+  <section class="card">
+    <h2>Результаты lab CSV (предварительно)</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Frrw</th><th>Frro</th><th>Oil</th><th>Water</th><th>Gate</th></tr></thead>
+      <tbody>
+        {% for r in program.lab_progress.rows %}
+        <tr>
+          <td><code>{{ r.recipe_id }}</code></td>
+          <td>{{ r.frrw }}</td><td>{{ r.frro }}</td>
+          <td>{{ r.oil_regain }}</td><td>{{ r.water_regain }}</td>
+          <td><span class="tag {% if r.gate == 'ДА' %}ok{% else %}warn{% endif %}">{{ r.gate }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <section class="card actions">
+    <form method="post" action="/lab-program/generate" style="display:inline">
+      <button type="submit" class="btn primary">Сгенерировать .docx</button>
+    </form>
+    <a href="/export/lab-program" class="btn secondary">Скачать .docx</a>
+    <a href="/reports" class="btn secondary">Все 6 отчётов</a>
+    <a href="/screening" class="btn secondary">← Screening</a>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}

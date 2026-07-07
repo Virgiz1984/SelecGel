@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>Модуль 3 — Оптимизация цепочки поставок</h2>
+    <p class="muted">Интеграция с маркетплейсами (Chemexsol) — подбор сырья по цене и срокам.</p>
+    <p><strong>{{ plan.recommendation }}</strong></p>
+    <div class="hero-stats" style="margin-top:1rem">
+      <div class="stat-card"><span class="stat-label">Total cost</span><span class="stat-value">{{ "{:,.0f}".format(plan.total_cost_rub).replace(",", " ") }} ₽</span></div>
+      <div class="stat-card"><span class="stat-label">Lead time</span><span class="stat-value">{{ plan.total_lead_time_days }} дн.</span></div>
+      <div class="stat-card green"><span class="stat-label">RF savings</span><span class="stat-value">{{ plan.savings_vs_import_pct }}%</span></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Recommended bundle</h2>
+    <table>
+      <thead><tr><th>Supplier</th><th>Marketplace</th><th>Monomer</th><th>₽/kg</th><th>Lead</th><th>Origin</th><th>Score</th></tr></thead>
+      <tbody>
+        {% for o in plan.best_bundle %}
+        <tr>
+          <td>{{ o.supplier_name }}</td><td>{{ o.marketplace }}</td><td>{{ o.monomer }}</td>
+          <td>{{ o.unit_price_rub_kg }}</td><td>{{ o.lead_time_days }}d</td><td>{{ o.origin }}</td><td>{{ o.score }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</main>
+{% endblock %}

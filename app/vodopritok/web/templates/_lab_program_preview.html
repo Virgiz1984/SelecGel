@@ -1,0 +1,26 @@
+{% if lab_program %}
+<section class="card">
+  <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem">
+    <h2 style="margin:0">Программа лаборатории</h2>
+    <a href="/lab-program" class="btn small secondary">Открыть полностью</a>
+    <a href="/export/lab-program" class="btn small primary">Скачать .docx</a>
+  </div>
+  <p class="muted">Track 1: {{ lab_program.track1_candidates|length }} рецептур · Track 2 backup: {{ lab_program.track2_backup|length }} · DoE: {{ lab_program.doe_runs|length }} прогонов</p>
+  <table>
+    <thead><tr><th>Track</th><th>ID</th><th>Название</th><th>Приоритет</th></tr></thead>
+    <tbody>
+      {% for q in lab_program.synthesis_queue[:6] %}
+      <tr>
+        <td><span class="tag">{{ q.track }}</span></td>
+        <td><code>{{ q.id }}</code></td>
+        <td>{{ q.name }}</td>
+        <td>{{ q.priority }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if lab_program.lab_progress.has_data %}
+  <p class="muted" style="margin-top:0.5rem">Lab CSV: gate {{ lab_program.lab_progress.passed }}/{{ lab_program.lab_progress.total }}</p>
+  {% endif %}
+</section>
+{% endif %}

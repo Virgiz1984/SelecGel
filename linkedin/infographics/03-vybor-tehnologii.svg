@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720">
+  <rect width="1200" height="720" fill="#F8FAFC"/>
+  <text x="600" y="55" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="34" font-weight="bold">Какой механизм обводнения — такая технология</text>
+  <rect x="420" y="100" width="360" height="70" rx="35" fill="#0B1F3A"/>
+  <text x="600" y="143" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">Откуда вода в скважине?</text>
+  <line x1="600" y1="170" x2="200" y2="230" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="600" y1="170" x2="600" y2="230" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="600" y1="170" x2="1000" y2="230" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="60" y="230" width="280" height="80" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="200" y="265" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Coning у ВНК</text>
+  <text x="200" y="292" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">matrix flow</text>
+  <rect x="460" y="230" width="280" height="80" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="600" y="265" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Channeling</text>
+  <text x="600" y="292" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">трещина / wormhole</text>
+  <rect x="860" y="230" width="280" height="80" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="1000" y="265" text-anchor="middle" fill="#1E3A8A" font-family="Arial,sans-serif" font-size="20" font-weight="bold">Cross-flow</text>
+  <text x="1000" y="292" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="16">между пропластками</text>
+  <rect x="60" y="360" width="280" height="90" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+  <text x="200" y="415" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="24" font-weight="bold">RPM</text>
+  <rect x="460" y="360" width="280" height="90" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+  <text x="600" y="415" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="24" font-weight="bold">PPG / RPPG</text>
+  <rect x="860" y="360" width="280" height="90" rx="12" fill="#FEF3C7" stroke="#C8860A" stroke-width="2"/>
+  <text x="1000" y="415" text-anchor="middle" fill="#92400E" font-family="Arial,sans-serif" font-size="22" font-weight="bold">In-depth gel</text>
+  <rect x="280" y="520" width="640" height="120" rx="16" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+  <text x="600" y="560" text-anchor="middle" fill="#991B1B" font-family="Arial,sans-serif" font-size="22" font-weight="bold">НЕ ПОДХОДИТ</text>
+  <text x="600" y="595" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="17">RPM на открытую трещину</text>
+  <text x="600" y="620" text-anchor="middle" fill="#334155" font-family="Arial,sans-serif" font-size="17">«Универсальный реагент» без core flood</text>
+  <text x="600" y="690" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="16">Сначала механизм → потом класс технологии</text>
+</svg>

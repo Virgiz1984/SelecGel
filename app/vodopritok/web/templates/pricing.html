@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card hero">
+    <h2>Бизнес-модель SelecGel AI</h2>
+    <p class="muted">Масштабируемый SaaS · предсказуемый доход · data moat</p>
+  </section>
+
+  <section class="card">
+    <h2>Тарифы</h2>
+    <div class="pricing-grid">
+      {% for key, t in tiers.items() %}
+      <div class="pricing-card{% if key.value == 'professional' %} featured{% endif %}">
+        <h3>{{ t.name_ru }}</h3>
+        <p class="price">{% if t.price_rub_month %}{{ "{:,}".format(t.price_rub_month).replace(",", " ") }} ₽/мес{% else %}Custom{% endif %}</p>
+        <ul>
+          <li>{% if t.screening %}✓{% else %}✗{% endif %} Virtual screening</li>
+          <li>{% if t.digital_twin %}✓{% else %}✗{% endif %} Digital twin</li>
+          <li>{% if t.supply_chain %}✓{% else %}✗{% endif %} Supply chain</li>
+          <li>{% if t.feedback_loop %}✓{% else %}✗{% endif %} Feedback / retrain</li>
+          <li>{% if t.api_access %}✓{% else %}✗{% endif %} API access</li>
+          <li>{{ t.max_screenings_month }} screenings/mo</li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Модели монетизации</h2>
+    <table>
+      <thead><tr><th>Модель</th><th>Описание</th></tr></thead>
+      <tbody>
+        {% for m in business_models %}
+        <tr><td><strong>{{ m.name }}</strong></td><td>{{ m.description }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>API для Enterprise</h2>
+    <pre class="code">POST /api/v1/workflow
+Header: X-Subscription-Tier: professional
+Body: { "temperature_c": 85, "salinity_g_l": 130, ... }</pre>
+    <a href="/docs" class="btn primary">OpenAPI /docs</a>
+  </section>
+</main>
+{% endblock %}

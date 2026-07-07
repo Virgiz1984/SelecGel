@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>Программа опытно-промышленных работ (ОПР)</h2>
+    <p class="muted">Deliverable №4 · lab gate → закачка lead → мониторинг → gate ОПР</p>
+    {% if request.query_params.get('generated') %}
+    <p class="success">Документ: <code>04-programma-opr.docx</code></p>
+    {% endif %}
+    <p class="muted">{{ program.expert_competency }}</p>
+  </section>
+
+  <section class="grid-2">
+    <div class="card">
+      <h2>Скважина-кандидат</h2>
+      <p><strong>{{ program.candidate_well }}</strong> · score <strong>{{ program.well_score|int }}/100</strong></p>
+      <ul class="muted" style="font-size:0.9rem;padding-left:1.2rem">
+        {% for n in program.well_notes %}<li>{{ n }}</li>{% endfor %}
+      </ul>
+      <table style="margin-top:0.5rem">
+        <thead><tr><th>Скважина</th><th>Score</th><th>Роль</th></tr></thead>
+        <tbody>
+          {% for w in program.wells_shortlist %}
+          <tr><td>{{ w.name }}</td><td>{{ w.score|int }}</td><td>{{ w.role }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Lab gate → ОПР</h2>
+      <p>Lead: <code>{{ program.lab_gate.lead_id }}</code></p>
+      <p>Gate: <strong>{{ program.lab_gate.passed }}/{{ program.lab_gate.total }}</strong></p>
+      <p><span class="tag {% if program.lab_gate.ready_for_opr %}ok{% else %}warn{% endif %}">{{ program.lab_gate.note }}</span></p>
+      <p class="muted" style="margin-top:0.5rem">Технология: {{ program.technology }} ({{ program.track }})</p>
+    </div>
+  </section>
+
+  <section class="card highlight">
+    <h2>Дизайн закачки</h2>
+    <div class="eco-grid">
+      <div class="eco-kpi"><span class="muted">Метод</span><strong>{{ program.injection.method }}</strong></div>
+      <div class="eco-kpi"><span class="muted">Объём</span><strong>{{ program.injection.volume_m3 }} m³</strong></div>
+      <div class="eco-kpi"><span class="muted">Conc.</span><strong>{{ program.injection.concentration_pct }}%</strong></div>
+      <div class="eco-kpi"><span class="muted">Скорость</span><strong>{{ program.injection.injection_rate_m3h }} m³/ч</strong></div>
+    </div>
+    <p class="muted" style="margin-top:0.5rem">{{ program.injection.brine_match }} · Flush {{ program.injection.flush_m3 }} m³ · P max {{ program.injection.max_pressure_atm }} atm</p>
+  </section>
+
+  <section class="card">
+    <h2>Календарный план</h2>
+    <table>
+      <thead><tr><th>Нед.</th><th>Фаза</th><th>Работы</th></tr></thead>
+      <tbody>
+        {% for t in program.timeline %}
+        <tr><td>{{ t.week }}</td><td>{{ t.phase }}</td><td style="font-size:0.85rem">{{ t.activities }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="grid-2">
+    <div class="card">
+      <h2>Мониторинг</h2>
+      <table>
+        <thead><tr><th>Период</th><th>Частота</th></tr></thead>
+        <tbody>
+          {% for m in program.monitoring_schedule %}
+          <tr><td>{{ m.period }}</td><td>{{ m.frequency }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Gate ОПР</h2>
+      <table>
+        <thead><tr><th>Критерий</th><th>Цель</th></tr></thead>
+        <tbody>
+          {% for g in program.opr_gate %}
+          <tr><td>{{ g.criterion }}</td><td>{{ g.target }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Экономический прогноз</h2>
+    <p>WC после: <strong>{{ program.economics_preview.wc_after_pct|int }}%</strong> ·
+       Экономия: <strong>{{ "{:,.0f}".format(program.economics_preview.annual_savings_rub).replace(",", " ") }} ₽/год</strong> ·
+       Payback: <strong>{{ program.economics_preview.payback_months }} мес</strong></p>
+    <a href="/opex-plan" class="btn small secondary">Подробнее OPEX</a>
+  </section>
+
+  <section class="card actions">
+    <form method="post" action="/opr-program/generate" style="display:inline">
+      <button type="submit" class="btn primary">Сгенерировать .docx</button>
+    </form>
+    <a href="/export/opr-program" class="btn secondary">Скачать .docx</a>
+    <a href="/lab-program" class="btn secondary">Lab program</a>
+    <a href="/screening" class="btn secondary">← Screening</a>
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% if opr_program %}
+<section class="card">
+  <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem">
+    <h2 style="margin:0">Программа ОПР</h2>
+    <a href="/opr-program" class="btn small secondary">Подробнее</a>
+    <a href="/export/opr-program" class="btn small primary">Скачать .docx</a>
+  </div>
+  <div class="eco-grid">
+    <div class="eco-kpi"><span class="muted">Скважина</span><strong>{{ opr_program.candidate_well }}</strong></div>
+    <div class="eco-kpi"><span class="muted">Score</span><strong>{{ opr_program.well_score|int }}/100</strong></div>
+    <div class="eco-kpi"><span class="muted">Закачка</span><strong>{{ opr_program.injection.volume_m3 }} m³</strong></div>
+    <div class="eco-kpi"><span class="muted">Payback</span><strong>{{ opr_program.economics_preview.payback_months }} мес</strong></div>
+  </div>
+  <p class="muted" style="margin-top:0.5rem">{{ opr_program.injection.method }} · {{ opr_program.injection.lead_mol_id }} @ {{ opr_program.injection.concentration_pct }}%</p>
+</section>
+{% endif %}

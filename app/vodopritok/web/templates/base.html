@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SelecGel — {{ page_title|default('Технология ОВП') }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="/static/charts.js?v=20260707b" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div>
+        <div class="brand">
+          <span class="brand-icon">SG</span>
+          <div>
+            <h1>SelecGel</h1>
+            <p class="subtitle">{{ tagline|default('Хемоинформатический конвейер для селективного ОВП') }}</p>
+          </div>
+        </div>
+      </div>
+      {% include "_nav.html" %}
+    </div>
+    <div class="container tier-bar">
+      <span class="muted">RDKit · molfeat · scikit-learn QSPR · DeepChem QSAR · QSPRpred</span>
+      <span class="muted">Демо-стенд технологии · не коммерческий SaaS</span>
+    </div>
+  </header>
+  {% block content %}{% endblock %}
+  {% block scripts %}{% endblock %}
+  <footer class="footer container">
+    <span>SelecGel · технология in silico screening для ОВП</span>
+  </footer>
+</body>
+</html>

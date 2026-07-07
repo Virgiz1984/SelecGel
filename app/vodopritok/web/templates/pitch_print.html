@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>SelecGel — материалы для заказчика</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    @media print {
+      body { background: #fff; color: #111; }
+      .card { border: 1px solid #ccc; box-shadow: none; }
+      .no-print { display: none !important; }
+    }
+    @page { margin: 1.5cm; }
+  </style>
+</head>
+<body>
+  <div class="container no-print" style="padding:1rem 0">
+    <button onclick="window.print()" class="btn primary">Печать / Save as PDF</button>
+    <a href="/pitch" class="btn secondary">← Назад</a>
+  </div>
+  <main class="container">
+    <section class="card">
+      <p class="eyebrow">SelecGel · отклик на проект ОВП</p>
+      <h2>Эксперт + технология in silico screening</h2>
+      <p>{{ form.field_name }} · T={{ form.temperature_c }}°C · WC={{ form.water_cut_pct }}% · salinity {{ form.salinity_g_l }} g/L</p>
+    </section>
+    <section class="card">
+      <h2>5 отличий</h2>
+      <ol>{% for point in pitch_points %}<li>{{ point }}</li>{% endfor %}</ol>
+    </section>
+    <section class="card">
+      <h2>ТЗ → deliverables</h2>
+      <table>
+        <thead><tr><th>ТЗ</th><th>Файл</th></tr></thead>
+        <tbody>{% for row in tz_mapping %}<tr><td>{{ row.tz }}</td><td><code>{{ row.deliverable }}</code></td></tr>{% endfor %}</tbody>
+      </table>
+    </section>
+    {% if session and session.pipeline %}
+    <section class="card">
+      <h2>Demo top-5</h2>
+      <table>
+        <thead><tr><th>#</th><th>Кандидат</th><th>Frrw</th><th>Frro</th></tr></thead>
+        <tbody>{% for m in session.pipeline.top5 %}<tr><td>{{ m.rank }}</td><td>{{ m.mol_id }}</td><td>{{ m.predicted_frrw }}</td><td>{{ m.predicted_frro }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </section>
+    {% endif %}
+    {% if recommendations %}
+    <section class="card">
+      <h2>Track R&D</h2>
+      <ul>{% for rec in recommendations %}<li>{{ rec.name_ru }} — {{ rec.track }}</li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>

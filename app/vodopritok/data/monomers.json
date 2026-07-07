@@ -1,0 +1,46 @@
+{
+  "monomers": [
+    {"id": "AM", "name": "Acrylamide", "name_ru": "Акриламид", "charge": 0, "logp": -1.2, "hbd": 2, "hba": 1, "mw": 71.08, "cost_index": 1.0, "available_rf": true},
+    {"id": "AMPS", "name": "2-Acrylamido-2-methylpropane sulfonic acid", "name_ru": "AMPS", "charge": -1, "logp": -0.5, "hbd": 3, "hba": 4, "mw": 207.25, "cost_index": 2.5, "available_rf": true},
+    {"id": "NVP", "name": "N-Vinylpyrrolidone", "name_ru": "NVP", "charge": 0, "logp": 0.1, "hbd": 0, "hba": 1, "mw": 111.14, "cost_index": 2.0, "available_rf": true},
+    {"id": "ATAC", "name": "Acrylamidopropyl trimethylammonium chloride", "name_ru": "ATAC (катионный)", "charge": 1, "logp": -2.0, "hbd": 2, "hba": 1, "mw": 193.67, "cost_index": 2.2, "available_rf": true},
+    {"id": "HEMA", "name": "2-Hydroxyethyl methacrylate", "name_ru": "HEMA", "charge": 0, "logp": 0.5, "hbd": 2, "hba": 3, "mw": 130.14, "cost_index": 1.8, "available_rf": true},
+    {"id": "C18AM", "name": "Stearyl acrylamide (hydrophobic)", "name_ru": "Гидрофобный C18", "charge": 0, "logp": 8.5, "hbd": 1, "hba": 1, "mw": 323.49, "cost_index": 4.0, "available_rf": false},
+    {"id": "C12AM", "name": "Lauryl acrylamide (hydrophobic)", "name_ru": "Гидрофобный C12", "charge": 0, "logp": 6.2, "hbd": 1, "hba": 1, "mw": 239.36, "cost_index": 3.5, "available_rf": false},
+    {"id": "AA", "name": "Acrylic acid", "name_ru": "Акриловая кислота", "charge": -1, "logp": 0.3, "hbd": 2, "hba": 2, "mw": 72.06, "cost_index": 1.2, "available_rf": true}
+  ],
+  "crosslinkers": [
+    {"id": "PEI", "name": "Polyethyleneimine", "name_ru": "ПЭИ", "type": "organic", "hths": true, "toxicity": "low"},
+    {"id": "citrate_al", "name": "Citrate-Al", "name_ru": "Цитрат-алюминий", "type": "inorganic", "hths": false, "toxicity": "low"},
+    {"id": "cr3", "name": "Chromium(III)", "name_ru": "Cr³⁺", "type": "inorganic", "hths": true, "toxicity": "high"},
+    {"id": "phenol_formaldehyde", "name": "Phenol-formaldehyde", "name_ru": "Фенолформальдегид", "type": "organic", "hths": true, "toxicity": "medium"},
+    {"id": "nano_sio2", "name": "Nano-SiO2", "name_ru": "Нано-SiO₂", "type": "nano", "hths": true, "toxicity": "low"},
+    {"id": "silicate", "name": "Sodium silicate", "name_ru": "Силикат натрия", "type": "inorganic", "hths": false, "toxicity": "low"}
+  ],
+  "recipe_templates": [
+    {
+      "track": "rpm_track1",
+      "name_ru": "Селективный RPM (Track 1)",
+      "monomer_ratios": {"AM": 0.70, "AMPS": 0.25, "C12AM": 0.05},
+      "target_mw_kda": [800, 1200, 2000],
+      "concentration_pct": [0.3, 0.5, 0.8],
+      "hypothesis": "A"
+    },
+    {
+      "track": "thermotropic_track2",
+      "name_ru": "Термотропный dual-gel (Track 2)",
+      "monomer_ratios": {"AM": 0.60, "NVP": 0.30, "AMPS": 0.10},
+      "crosslinker": "silicate",
+      "nano_filler": "nano_sio2",
+      "hypothesis": "B"
+    },
+    {
+      "track": "hths_gel",
+      "name_ru": "HTHS PEI gel (Track conditional)",
+      "monomer_ratios": {"AM": 0.50, "AMPS": 0.40, "NVP": 0.10},
+      "crosslinker": "PEI",
+      "nano_filler": "nano_sio2",
+      "hypothesis": "C"
+    }
+  ]
+}

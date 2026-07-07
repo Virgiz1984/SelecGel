@@ -1,0 +1,25 @@
+{% if synthesis_assessment %}
+<section class="card">
+  <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem">
+    <h2 style="margin:0">Синтез рецептур (хемоинформатика)</h2>
+    <a href="/cheminformatics" class="btn small secondary">Подробнее</a>
+    <a href="/export/cheminformatics" class="btn small primary">Скачать .docx</a>
+  </div>
+  <p class="muted">{{ synthesis_assessment.reduction_story }}</p>
+  <table>
+    <thead><tr><th>#</th><th>ID</th><th>Feasibility</th><th>FTO</th><th>Вердикт</th></tr></thead>
+    <tbody>
+      {% for a in synthesis_assessment.assessments %}
+      <tr>
+        <td>{{ a.rank }}</td>
+        <td><code>{{ a.recipe_id }}</code></td>
+        <td><strong>{{ a.feasibility_score }}</strong></td>
+        <td>{{ a.fto_risk }}</td>
+        <td><span class="tag {{ a.verdict_class }}">{{ a.verdict }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="muted" style="margin-top:0.5rem">Рекомендовано к синтезу: {{ synthesis_assessment.recommended_count }}/{{ synthesis_assessment.assessments|length }}</p>
+</section>
+{% endif %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>Оценка синтеза рецептур (хемоинформатика)</h2>
+    <p class="muted">{{ assessment.expert_competency }}</p>
+    {% if request.query_params.get('generated') %}
+    <p class="success">Документ: <code>01b-ocenka-sintez-khemoinformatika.docx</code></p>
+    {% endif %}
+    {% if not assessment.pipeline.has_run %}
+    <p class="warn">Запустите <a href="/screening">screening</a> — pipeline и top-5 подставятся автоматически.</p>
+    {% endif %}
+  </section>
+
+  <section class="grid-2">
+    <div class="card">
+      <h2>Конвейер in silico</h2>
+      <div class="eco-grid">
+        <div class="eco-kpi"><span class="muted">Вход</span><strong>{{ assessment.pipeline.total_input }}</strong></div>
+        <div class="eco-kpi"><span class="muted">QSPR</span><strong>{{ assessment.pipeline.after_qspr }}</strong></div>
+        <div class="eco-kpi"><span class="muted">Top-N синтез</span><strong>{{ assessment.pipeline.top5 }}</strong></div>
+        <div class="eco-kpi"><span class="muted">Сокращение</span><strong>−{{ assessment.pipeline.reduction_pct|int }}%</strong></div>
+      </div>
+      {% if assessment.pipeline.stages %}
+      <table style="margin-top:0.75rem">
+        <thead><tr><th>Этап</th><th>Tool</th><th>In→Out</th></tr></thead>
+        <tbody>
+          {% for s in assessment.pipeline.stages %}
+          <tr><td>{{ s.name }}</td><td style="font-size:0.85rem">{{ s.tool }}</td><td>{{ s.input_count }}→{{ s.output_count }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+    <div class="card">
+      <h2>Методология (6 шагов)</h2>
+      <ol style="margin:0;padding-left:1.2rem;font-size:0.9rem">
+        {% for step in assessment.methodology %}
+        <li style="margin-bottom:0.35rem"><strong>{{ step.title }}</strong> — {{ step.detail }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+  </section>
+
+  <section class="card highlight">
+    <h2>Feasibility top-5 для синтеза</h2>
+    <p class="muted">{{ assessment.conclusion }}</p>
+    <table>
+      <thead><tr><th>#</th><th>ID</th><th>Состав</th><th>MW</th><th>Score</th><th>FTO</th><th>Priority</th><th>Вердикт</th></tr></thead>
+      <tbody>
+        {% for a in assessment.assessments %}
+        <tr>
+          <td>{{ a.rank }}</td>
+          <td><code>{{ a.recipe_id }}</code></td>
+          <td style="font-size:0.8rem">{{ a.monomers }}</td>
+          <td>{{ a.target_mw_kda }}</td>
+          <td><strong>{{ a.feasibility_score }}</strong></td>
+          <td><span class="tag {% if a.fto_risk == 'low' %}ok{% else %}warn{% endif %}">{{ a.fto_risk }}</span></td>
+          <td>{{ a.lab_priority }}</td>
+          <td><span class="tag {{ a.verdict_class }}">{{ a.verdict }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Доступность мономеров</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Название</th><th>Заряд</th><th>Поставка</th><th>Fit под пласт</th></tr></thead>
+      <tbody>
+        {% for m in assessment.monomer_supply %}
+        <tr><td><code>{{ m.id }}</code></td><td>{{ m.name_ru }}</td><td>{{ m.charge }}</td><td>{{ m.supply }}</td><td>{{ m.fit_note }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card actions">
+    <form method="post" action="/cheminformatics/generate" style="display:inline">
+      <button type="submit" class="btn primary">Сгенерировать .docx</button>
+    </form>
+    <a href="/export/cheminformatics" class="btn secondary">Скачать .docx</a>
+    <a href="/screening" class="btn secondary">Screening</a>
+    <a href="/lab-program" class="btn secondary">Программа лаборатории</a>
+  </section>
+</main>
+{% endblock %}

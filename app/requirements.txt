@@ -1,0 +1,22 @@
+# Core
+python-docx>=1.1.0
+typer>=0.9.0
+rich>=13.0.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+jinja2>=3.1.0
+python-multipart>=0.0.9
+
+# Cheminformatics pipeline (Stage 1-2, minimum)
+numpy>=1.24.0
+scikit-learn>=1.3.0
+rdkit>=2023.9.1
+
+# Optional Stage 1 extended
+# molfeat>=0.9.0
+
+# Optional Stage 3
+# deepchem>=2.7.0
+
+# Optional Stage 4 native
+# qsprpred>=3.2.0

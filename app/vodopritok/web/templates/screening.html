@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>Виртуальный screening</h2>
+    <p class="muted">Параметры пласта заказчика → конвейер, top-5, экономика и one-pager для встречи.</p>
+    <form method="post" action="/screening/run" class="form">
+      {% include "_reservoir_form.html" %}
+      <button type="submit" class="btn primary">Запустить (500 → top-5)</button>
+    </form>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    {% if request.query_params.get('lab_uploaded') %}<p class="success">Lab CSV загружен — QSPRpred пересчитан.</p>{% endif %}
+    {% if saved %}
+    <p class="success">Результат сохранён — данные подставятся в 6 .docx.</p>
+    <div class="hero-actions" style="margin-top:0.75rem">
+      <a href="/export/one-pager" class="btn secondary">Скачать one-pager (.docx)</a>
+      <a href="/reports" class="btn primary">Сгенерировать полный пакет</a>
+    </div>
+    {% endif %}
+  </section>
+
+  <section class="card">
+    <h2>Lab CSV (калибровка QSPRpred)</h2>
+    <p class="muted">Колонки: rank, frrw, frro, … — rank сопоставляется с top-5. Шаблон: examples/lab_measurements.csv</p>
+    <form method="post" action="/lab/upload" enctype="multipart/form-data" class="form" style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap">
+      <input type="file" name="file" accept=".csv" required>
+      <button type="submit" class="btn secondary">Загрузить и пересчитать</button>
+    </form>
+  </section>
+
+  {% if library_stats %}
+  <section class="card">
+    <h2>Патентная библиотека</h2>
+    <p class="muted">{{ library_stats.description }}</p>
+    <div class="kpi-row">
+      <span class="kpi"><strong>{{ library_stats.count }}</strong> SMILES</span>
+      <span class="kpi"><strong>{{ library_stats.unique_patents }}</strong> patent refs</span>
+      <span class="kpi"><strong>{{ lab_count }}</strong> lab rows</span>
+    </div>
+    <table style="margin-top:0.75rem">
+      <thead><tr><th>mol_id</th><th>Класс</th><th>Patent</th></tr></thead>
+      <tbody>
+        {% for m in library_stats.sample[:6] %}
+        <tr><td><code>{{ m.mol_id }}</code></td><td>{{ m.class }}</td><td>{{ m.patent_ref }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <section class="chart-grid">
+    <div class="card chart-box wide"><canvas id="chart-tech"></canvas></div>
+  </section>
+
+  {% if rd_tracks %}
+  <section class="card highlight">
+    <h2>Двухтрековая стратегия R&D</h2>
+    <p class="muted">{{ rd_tracks.screening_note }}</p>
+    <div class="grid-2" style="margin-top:0.75rem">
+      <div>
+        <h4>Track 1 — primary</h4>
+        {% if rd_tracks.track1 %}
+        <p><strong>{{ rd_tracks.track1.name_ru }}</strong></p>
+        <p class="muted">{{ rd_tracks.track1.track }}</p>
+        {% else %}<p class="muted">—</p>{% endif %}
+      </div>
+      <div>
+        <h4>Track 2 — backup</h4>
+        {% if rd_tracks.track2 %}
+        <p><strong>{{ rd_tracks.track2.name_ru }}</strong></p>
+        <p class="muted">{{ rd_tracks.track2.track }} · lab Phase 1, если gate RPM не пройден</p>
+        {% else %}<p class="muted">—</p>{% endif %}
+      </div>
+    </div>
+    {% if rd_tracks.track3 %}
+    <p class="muted" style="margin-top:0.5rem"><strong>Track 3 (условный):</strong> {{ rd_tracks.track3.name_ru }} — {{ rd_tracks.track3.track }}</p>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if result %}
+
+  {% if risk_dashboard %}
+  <section class="card highlight">
+    <h2>Оценка проекта · {{ risk_dashboard.overall_score }}/100</h2>
+    <p class="muted">Risk level: {{ risk_dashboard.overall_level }} — комплексная оценка для заказчика</p>
+    <div class="risk-grid">
+      {% for c in risk_dashboard.cards %}
+      <div class="risk-card level-{{ c.level }}">
+        <span class="risk-title">{{ c.title }}</span>
+        <strong class="risk-score">{{ c.score|int }}</strong>
+        <span class="muted">{{ c.detail }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if eco_defaults %}
+  <section class="card">
+    <h2>Экономика OPEX (интерактивно)</h2>
+    <div class="eco-sliders">
+      <label>WC до, % <input type="range" id="eco-wc-before" min="50" max="98" value="{{ eco_defaults.wc_before|int }}"><span id="v-wc-before">{{ eco_defaults.wc_before|int }}</span></label>
+      <label>WC после, % <input type="range" id="eco-wc-after" min="40" max="90" value="{{ eco_defaults.wc_after|int }}"><span id="v-wc-after">{{ eco_defaults.wc_after|int }}</span></label>
+      <label>Qn, t/d <input type="range" id="eco-oil-rate" min="3" max="40" step="0.5" value="{{ eco_defaults.oil_rate }}"><span id="v-oil">{{ eco_defaults.oil_rate }}</span></label>
+      <label>Стоимость обработки, ₽ <input type="range" id="eco-treatment" min="300000" max="2000000" step="50000" value="900000"><span id="v-treat">900000</span></label>
+    </div>
+    <div id="eco-output" class="eco-output"></div>
+  </section>
+  {% endif %}
+
+  <section class="card">
+    <h2>ML pipeline status</h2>
+    <div class="badge-row">
+      {% for stage in result.stages %}
+      <span class="ml-badge {% if 'fallback' in stage.tool|lower %}warn{% else %}ok{% endif %}">{{ stage.name }} · {{ stage.tool }}</span>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="card highlight">
+    <h2>Воронка отбора</h2>
+    <div class="hero-actions" style="margin-bottom:0.75rem">
+      <button type="button" class="btn small secondary" onclick="exportAllCharts(['chart-funnel','chart-top5','chart-selectivity','chart-qsprpred','chart-qsprpred-mape','chart-stages','chart-tech'])">Скачать PNG</button>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-box wide"><canvas id="chart-funnel"></canvas></div>
+      <div class="chart-box wide"><canvas id="chart-top5"></canvas></div>
+      <div class="chart-box"><canvas id="chart-selectivity"></canvas></div>
+      {% if validation %}<div class="chart-box"><canvas id="chart-qsprpred"></canvas></div>{% endif %}
+      {% if qsprpred_comparison %}<div class="chart-box"><canvas id="chart-qsprpred-mape"></canvas></div>{% endif %}
+      <div class="chart-box wide"><canvas id="chart-stages"></canvas></div>
+    </div>
+    {% if qsprpred_comparison and qsprpred_comparison.after %}
+    <p class="muted" style="margin-top:0.5rem">QSPRpred MAPE: {{ qsprpred_comparison.before.mape }}% → {{ qsprpred_comparison.after.mape }}% после lab CSV</p>
+    {% endif %}
+  </section>
+
+  <section class="card">
+    <h2>Top-5 для лаборатории</h2>
+    <table>
+      <thead><tr><th>#</th><th>mol_id</th><th>Frrw</th><th>Frro</th><th>Selectivity</th></tr></thead>
+      <tbody>
+        {% for m in result.top5 %}
+        <tr><td>{{ m.rank }}</td><td><strong>{{ m.mol_id }}</strong></td>
+            <td>{{ "%.2f"|format(m.predicted_frrw) }}</td><td>{{ "%.2f"|format(m.predicted_frro) }}</td>
+            <td>{{ "%.2f"|format(m.selectivity_index) }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  {% include "_synthesis_preview.html" %}
+  {% include "_opr_preview.html" %}
+  {% include "_lab_program_preview.html" %}
+  {% include "_opex_preview.html" %}
+
+  {% if fto_rows %}
+  <section class="card">
+    <h2>FTO / патентная оценка</h2>
+    <table>
+      <thead><tr><th>mol_id</th><th>Patent</th><th>Risk</th><th>Рекомендация</th></tr></thead>
+      <tbody>
+        {% for r in fto_rows %}
+        <tr><td><code>{{ r.mol_id }}</code></td><td>{{ r.patent_ref }}</td>
+            <td><span class="tag {% if r.risk == 'low' %}ok{% else %}warn{% endif %}">{{ r.risk }}</span></td>
+            <td>{{ r.recommendation }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% else %}
+  {% if recommendations %}
+  <section class="card">
+    <h2>Рекомендация технологии (до screening)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Технология</th><th>Track</th><th>Score</th></tr></thead>
+      <tbody>
+        {% for rec in recommendations %}
+        <tr><td>{{ rec.rank }}</td><td>{{ rec.name_ru }}</td><td><span class="tag">{{ rec.track }}</span></td><td>{{ "%.0f"|format(rec.score) }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+  {% endif %}
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/economics.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    initScreeningCharts({{ charts_json | safe }});
+    {% if eco_defaults %}
+    initEconomicsSlider({});
+    ['eco-wc-before','eco-wc-after','eco-oil-rate','eco-treatment'].forEach(id => {
+      const el = document.getElementById(id);
+      const span = document.getElementById('v-' + id.replace('eco-','').replace('wc-before','wc-before').replace('wc-after','wc-after').replace('oil-rate','oil').replace('treatment','treat'));
+      if (el && span) el.addEventListener('input', () => { span.textContent = el.value; });
+    });
+    {% endif %}
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{# Карточка пласта — общий фрагмент для screening / reports #}
+<div class="form-row">
+  <label>Месторождение<input name="field_name" value="{{ form.field_name }}"></label>
+  <label>Скважина<input name="well_name" value="{{ form.well_name }}"></label>
+</div>
+<div class="form-row">
+  <label>Эксперт<input name="expert" value="{{ expert|default('Эксперт по ОВП') }}"></label>
+  <label>Заказчик<input name="company" value="{{ company|default('Заказчик') }}"></label>
+</div>
+<div class="form-row triple">
+  <label>T, °C<input type="number" step="0.1" name="temperature_c" value="{{ form.temperature_c }}"></label>
+  <label>Salinity, г/л<input type="number" step="0.1" name="salinity_g_l" value="{{ form.salinity_g_l }}"></label>
+  <label>k, мД<input type="number" step="0.1" name="permeability_md" value="{{ form.permeability_md }}"></label>
+</div>
+<div class="form-row triple">
+  <label>WC, %<input type="number" step="0.1" name="water_cut_pct" value="{{ form.water_cut_pct }}"></label>
+  <label>Qn, т/сут<input type="number" step="0.1" name="oil_rate_tpd" value="{{ form.oil_rate_tpd }}"></label>
+  <label>API<input type="number" step="0.1" name="api_gravity" value="{{ form.api_gravity|default(22) }}"></label>
+</div>
+<div class="form-row">
+  <label>Механизм обводнения
+    <select name="water_mechanism">
+      {% for m in mechanisms %}
+      <option value="{{ m.id }}" {% if form.water_mechanism == m.id %}selected{% endif %}>{{ m.name_ru }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Литология
+    <select name="lithology">
+      <option value="sandstone" {% if form.lithology == 'sandstone' %}selected{% endif %}>Песчаник</option>
+      <option value="carbonate" {% if form.lithology == 'carbonate' %}selected{% endif %}>Карбонат</option>
+      <option value="mixed" {% if form.lithology == 'mixed' %}selected{% endif %}>Смешанный</option>
+    </select>
+  </label>
+</div>
+<label class="checkbox">
+  <input type="checkbox" name="has_fracture" {% if form.has_fracture %}checked{% endif %}>
+  Трещины / каналы (Track 3 — PPG/RPPG)
+</label>

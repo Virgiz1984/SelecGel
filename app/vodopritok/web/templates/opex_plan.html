@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="card">
+    <h2>План снижения OPEX</h2>
+    <p class="muted">Deliverable №6 · мероприятия для внедрённых технологий ограничения водопритока</p>
+    {% if request.query_params.get('generated') %}
+    <p class="success">Документ: <code>06-plan-snizheniya-opex.docx</code></p>
+    {% endif %}
+    <p class="muted">Технология: <strong>{{ plan.technology }}</strong></p>
+    <p class="muted" style="margin-top:0.5rem">{{ plan.expert_competency }}</p>
+  </section>
+
+  <section class="card">
+    <h2>Методология разработки мероприятий</h2>
+    <ol>
+      {% for step in plan.methodology %}
+      <li><strong>Шаг {{ step.step }}. {{ step.title }}</strong> — {{ step.detail }}</li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Экономика классов технологий ОВП</h2>
+    <table>
+      <thead><tr><th>Технология</th><th>Track</th><th>CAPEX</th><th>OPEX/год</th><th>Риск</th><th>Применение</th></tr></thead>
+      <tbody>
+        {% for t in plan.technology_comparison %}
+        <tr>
+          <td>{{ t.technology }}{% if t.recommended %} <span class="tag ok">✓</span>{% endif %}</td>
+          <td>{{ t.track }}</td>
+          <td>{{ "{:,.0f}".format(t.capex_rub).replace(",", " ") }} ₽</td>
+          <td>{{ "{:,.0f}".format(t.annual_reagent_rub).replace(",", " ") }} ₽</td>
+          <td>{{ t.failed_risk_pct }}%</td>
+          <td style="font-size:0.85rem">{{ t.best_for }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="grid-2">
+    <div class="card">
+      <h2>Эффект от сокращения водопритока</h2>
+      <table>
+        <tbody>
+          <tr><td>WC до → после</td><td>{{ plan.scenario.water_cut_before_pct|int }}% → {{ plan.scenario.water_cut_after_pct|int }}%</td></tr>
+          <tr><td>OPEX воды до</td><td><strong>{{ "{:,.0f}".format(plan.analysis.baseline_water_opex_rub).replace(",", " ") }} ₽/год</strong></td></tr>
+          <tr><td>Прямая экономия</td><td><strong>{{ "{:,.0f}".format(plan.analysis.annual_savings_rub).replace(",", " ") }} ₽/год</strong></td></tr>
+          <tr><td>Payback</td><td>{{ plan.analysis.payback_months }} мес</td></tr>
+          <tr><td>NPV 3 года</td><td>{{ "{:,.0f}".format(plan.analysis.npv_3yr_rub).replace(",", " ") }} ₽</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Калькулятор (live)</h2>
+      <div class="eco-sliders">
+        <label>WC до, % <input type="range" id="eco-wc-before" min="50" max="98" value="{{ eco_defaults.wc_before|int }}"><span id="v-wc-before">{{ eco_defaults.wc_before|int }}</span></label>
+        <label>WC после, % <input type="range" id="eco-wc-after" min="40" max="90" value="{{ eco_defaults.wc_after|int }}"><span id="v-wc-after">{{ eco_defaults.wc_after|int }}</span></label>
+        <label>Qn, t/d <input type="range" id="eco-oil-rate" min="3" max="40" step="0.5" value="{{ eco_defaults.oil_rate }}"><span id="v-oil">{{ eco_defaults.oil_rate }}</span></label>
+        <label>Обработка, ₽ <input type="range" id="eco-treatment" min="300000" max="2000000" step="50000" value="900000"><span id="v-treat">900000</span></label>
+      </div>
+      <div id="eco-output" class="eco-output"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Структура OPEX воды</h2>
+    <table>
+      <thead><tr><th>Статья</th><th>До, ₽/год</th><th>После, ₽/год</th></tr></thead>
+      <tbody>
+        {% for row in plan.cost_breakdown %}
+        <tr><td>{{ row.item }}</td><td>{{ "{:,.0f}".format(row.before_rub).replace(",", " ") }}</td><td>{{ "{:,.0f}".format(row.after_rub).replace(",", " ") }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  {% for category, items in plan.measures_by_category.items() %}
+  <section class="card">
+    <h2>{{ category }}</h2>
+    <table>
+      <thead><tr><th>№</th><th>Мероприятие</th><th>Экономия</th><th>₽/год</th><th>Срок</th><th>Ответственный</th></tr></thead>
+      <tbody>
+        {% for m in items %}
+        <tr>
+          <td>{{ m.id }}</td>
+          <td>{{ m.measure }}<br><span class="muted" style="font-size:0.8rem">{{ m.description }}</span></td>
+          <td>~{{ m.saving_pct }}%</td>
+          <td>{{ "{:,.0f}".format(m.estimated_annual_rub).replace(",", " ") }}</td>
+          <td>{{ m.horizon }}</td>
+          <td>{{ m.owner }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endfor %}
+
+  <section class="card highlight">
+    <h2>Сводный потенциал</h2>
+    <p>Прямая экономия воды: <strong>{{ "{:,.0f}".format(plan.analysis.annual_savings_rub).replace(",", " ") }} ₽/год</strong></p>
+    <p>Доп. мероприятия (оценка): <strong>{{ "{:,.0f}".format(plan.incremental_savings_rub).replace(",", " ") }} ₽/год</strong></p>
+    <p>Ориентир итого: <strong>{{ "{:,.0f}".format(plan.total_potential_rub).replace(",", " ") }} ₽/год</strong></p>
+    <p class="muted">{{ plan.portfolio_note }}</p>
+  </section>
+
+  <section class="card">
+    <h2>KPI мониторинга</h2>
+    <table>
+      <thead><tr><th>KPI</th><th>Цель</th><th>Периодичность</th></tr></thead>
+      <tbody>
+        {% for k in plan.monitoring_kpi %}
+        <tr><td>{{ k.kpi }}</td><td>{{ k.target }}</td><td>{{ k.frequency }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Жизненный цикл внедрения</h2>
+    <table>
+      <thead><tr><th>Фаза</th><th>Затраты, ₽</th><th>Эффект, ₽/год</th></tr></thead>
+      <tbody>
+        {% for l in plan.implementation_lifecycle %}
+        <tr><td>{{ l.phase }}</td><td>{{ "{:,.0f}".format(l.cost_rub).replace(",", " ") }}</td><td>{{ "{:,.0f}".format(l.benefit_rub).replace(",", " ") }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card actions">
+    <form method="post" action="/opex-plan/generate" style="display:inline">
+      <button type="submit" class="btn primary">Сгенерировать .docx</button>
+    </form>
+    <a href="/export/opex-plan" class="btn secondary">Скачать .docx</a>
+    <a href="/reports" class="btn secondary">Все отчёты</a>
+  </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/economics.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    initEconomicsSlider({});
+    ['eco-wc-before','eco-wc-after','eco-oil-rate','eco-treatment'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const spanMap = { 'eco-wc-before': 'v-wc-before', 'eco-wc-after': 'v-wc-after', 'eco-oil-rate': 'v-oil', 'eco-treatment': 'v-treat' };
+      const span = document.getElementById(spanMap[id]);
+      if (span) el.addEventListener('input', () => { span.textContent = el.value; });
+    });
+  });
+</script>
+{% endblock %}

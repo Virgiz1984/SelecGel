@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="hero card">
+    <p class="eyebrow">Технология эксперта · селективное ОВП</p>
+    <h2>In silico screening реагентов под ваш пласт</h2>
+    <p class="hero-text">
+      Хемоинформатический конвейер: <strong>500 → 150 → top-5</strong> кандидатов до лаборатории.
+      Сначала механизм обводнения — потом класс технологии — потом химия.
+    </p>
+    <div class="hero-actions">
+      <a href="/screening" class="btn primary">Запустить screening</a>
+      <a href="/pitch" class="btn secondary">Материалы для заказчика</a>
+    </div>
+  </section>
+
+  {% if session %}
+  <section class="card success-bar">
+    <strong>Последний screening сохранён</strong>
+    <span class="muted">{{ session.updated_at[:16] }} · {{ session.reservoir.field_name }} · T={{ session.reservoir.temperature_c }}°C</span>
+    <a href="/reports" class="btn small primary" style="margin-left:auto">Сгенерировать отчёты</a>
+  </section>
+  {% else %}
+  <section class="card">
+    <p class="muted">Демо-кейс: Западная Сибирь, Well-101, T=85°C, WC=82%. Начните со <a href="/screening">screening</a>.</p>
+  </section>
+  {% endif %}
+
+  <section class="card">
+    <h2>Конвейер</h2>
+    <div class="pipeline-flow">
+      <span class="flow-step">Карточка пласта</span><span class="flow-arrow">→</span>
+      <span class="flow-step">RDKit · 500 SMILES</span><span class="flow-arrow">→</span>
+      <span class="flow-step">QSPR −70%</span><span class="flow-arrow">→</span>
+      <span class="flow-step">QSAR top-5</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Lab gate → ОПР</span>
+    </div>
+  </section>
+
+  <section class="chart-grid">
+    {% if session and session.pipeline %}
+    <div class="card chart-box"><canvas id="chart-home-funnel"></canvas></div>
+    <div class="card chart-box"><canvas id="chart-home-top5"></canvas></div>
+    {% endif %}
+    <div class="card chart-box {% if not session or not session.pipeline %}wide{% endif %}"><canvas id="chart-home-tech"></canvas></div>
+    {% if session and session.pipeline %}
+    <div class="card chart-box wide"><canvas id="chart-home-stages"></canvas></div>
+    {% endif %}
+  </section>
+
+  <section class="modules grid-4">
+    <a href="/screening" class="module-card featured-mod"><span class="mod-num">1</span><h3>Screening</h3><p>500 → top-5 · live demo</p></a>
+    <a href="/digital-twin" class="module-card"><span class="mod-num">2</span><h3>Профиль реагента</h3><p>Frrw, η, economics</p></a>
+    <a href="/reports" class="module-card"><span class="mod-num">3</span><h3>6 отчётов .docx</h3><p>Покрытие ТЗ проекта</p></a>
+    <a href="/pitch" class="module-card"><span class="mod-num">4</span><h3>Для заказчика</h3><p>ТЗ → deliverables</p></a>
+  </section>
+
+  {% if lead_twin %}
+  <section class="card">
+    <h2>{% if session %}Lead candidate{% else %}Рекомендуемая технология{% endif %}</h2>
+    <p><strong>{{ lead_twin.mol_id }}</strong>
+      {% if lead_twin.frrw != "—" %} · Frrw {{ lead_twin.frrw }} · Frro {{ lead_twin.frro }}{% endif %}
+    </p>
+    {% if lead_twin.hint %}<p class="muted">{{ lead_twin.hint }}</p>{% endif %}
+  </section>
+  {% endif %}
+
+  <section class="card">
+    <h2>Покрытие ТЗ проекта (6 deliverables)</h2>
+    <table>
+      <thead><tr><th>Пункт ТЗ</th><th>Файл</th></tr></thead>
+      <tbody>
+        {% for row in tz_mapping %}
+        <tr><td>{{ row.tz }}</td><td><code>{{ row.deliverable }}</code></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const data = {{ charts_json | safe }};
+    initHomeCharts(data);
+  });
+</script>
+{% endblock %}

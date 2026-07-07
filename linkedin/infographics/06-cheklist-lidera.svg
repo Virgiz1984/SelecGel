@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720">
+  <rect width="1200" height="720" fill="#F8FAFC"/>
+  <text x="600" y="55" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="34" font-weight="bold">Чеклист лидера проекта ОВП</text>
+  <text x="600" y="92" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="20">5 шагов без бюрократии</text>
+  
+  <rect x="80" y="130" width="1040" height="88" rx="14" fill="#FFF" stroke="#E2E8F0" stroke-width="2"/>
+  <circle cx="130" cy="174" r="26" fill="#2E86AB"/>
+  <text x="130" y="182" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">1</text>
+  <text x="180" y="165" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="21" font-weight="bold">Сначала механизм обводнения</text>
+  <text x="180" y="192" fill="#64748B" font-family="Arial,sans-serif" font-size="16">PLT · tracers · история дебитов</text>
+  <rect x="80" y="233" width="1040" height="88" rx="14" fill="#FFF" stroke="#E2E8F0" stroke-width="2"/>
+  <circle cx="130" cy="277" r="26" fill="#2E86AB"/>
+  <text x="130" y="285" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">2</text>
+  <text x="180" y="268" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="21" font-weight="bold">Потом класс технологии</text>
+  <text x="180" y="295" fill="#64748B" font-family="Arial,sans-serif" font-size="16">RPM / gel / PPG — под механизм</text>
+  <rect x="80" y="336" width="1040" height="88" rx="14" fill="#FFF" stroke="#E2E8F0" stroke-width="2"/>
+  <circle cx="130" cy="380" r="26" fill="#C8860A"/>
+  <text x="130" y="388" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">3</text>
+  <text x="180" y="371" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="21" font-weight="bold">??? ????? ? ???????????</text>
+  <text x="180" y="398" fill="#64748B" font-family="Arial,sans-serif" font-size="16">Primary + backup (Track 1 + Track 2)</text>
+  <rect x="80" y="439" width="1040" height="88" rx="14" fill="#FFF" stroke="#E2E8F0" stroke-width="2"/>
+  <circle cx="130" cy="483" r="26" fill="#16A34A"/>
+  <text x="130" y="491" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">4</text>
+  <text x="180" y="474" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="21" font-weight="bold">Gate на core flood</text>
+  <text x="180" y="501" fill="#64748B" font-family="Arial,sans-serif" font-size="16">Frrw/Frrо не сходится → в поле не идём</text>
+  <rect x="80" y="542" width="1040" height="88" rx="14" fill="#FFF" stroke="#E2E8F0" stroke-width="2"/>
+  <circle cx="130" cy="586" r="26" fill="#16A34A"/>
+  <text x="130" y="594" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">5</text>
+  <text x="180" y="577" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="21" font-weight="bold">Считать экономику</text>
+  <text x="180" y="604" fill="#64748B" font-family="Arial,sans-serif" font-size="16">₽/т воды · ₽/т нефти</text>
+</svg>

@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+  <section class="hero card">
+    <h2>Что вы получаете от эксперта с технологией SelecGel</h2>
+    <p class="hero-text">
+      Не подписку на софт — <strong>ведение проекта</strong> с инструментом, который сокращает перебор рецептур
+      и повышает вероятность успеха ОВП.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>5 отличий от «купить реагент у сервиса»</h2>
+    <ol class="pitch-list">
+      {% for point in pitch_points %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Покрытие ТЗ — таблица для отклика</h2>
+    <table>
+      <thead><tr><th>Требование ТЗ</th><th>Deliverable</th><th>Как показываю</th></tr></thead>
+      <tbody>
+        {% for row in tz_mapping %}
+        <tr>
+          <td>{{ row.tz }}</td>
+          <td><code>{{ row.deliverable }}</code></td>
+          <td class="muted">{{ row.demo }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="chart-grid">
+    <div class="card chart-box wide"><canvas id="chart-pitch-tech"></canvas></div>
+    <div class="card chart-box wide"><canvas id="chart-pitch-tech-eco"></canvas></div>
+    {% if session and session.pipeline %}
+    <div class="card chart-box"><canvas id="chart-pitch-funnel"></canvas></div>
+    <div class="card chart-box"><canvas id="chart-pitch-top5"></canvas></div>
+    <div class="card chart-box wide"><canvas id="chart-pitch-stages"></canvas></div>
+    {% endif %}
+  </section>
+
+  {% if session and session.pipeline %}
+  <section class="card highlight">
+    <h2>Результат demo (ваш пласт)</h2>
+    <p>{{ session.reservoir.field_name }} · T={{ session.reservoir.temperature_c }}°C · WC={{ session.reservoir.water_cut_pct }}%</p>
+    <table>
+      <thead><tr><th>#</th><th>Кандидат</th><th>Frrw</th><th>Frro</th></tr></thead>
+      <tbody>
+        {% for m in session.pipeline.top5 %}
+        <tr><td>{{ m.rank }}</td><td>{{ m.mol_id }}</td><td>{{ m.predicted_frrw }}</td><td>{{ m.predicted_frro }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% if rd_tracks %}
+  <section class="card">
+    <h2>Двухтрековая стратегия R&D</h2>
+    <p class="muted">{{ rd_tracks.screening_note }}</p>
+    <table style="margin-top:0.5rem">
+      <thead><tr><th>Track</th><th>Технология</th><th>Роль</th></tr></thead>
+      <tbody>
+        {% if rd_tracks.track1 %}
+        <tr><td>Track 1</td><td>{{ rd_tracks.track1.name_ru }}</td><td>Primary · in silico top-5</td></tr>
+        {% endif %}
+        {% if rd_tracks.track2 %}
+        <tr><td>Track 2</td><td>{{ rd_tracks.track2.name_ru }}</td><td>Backup · lab Phase 1</td></tr>
+        {% endif %}
+        {% if rd_tracks.track3 %}
+        <tr><td>Track 3</td><td>{{ rd_tracks.track3.name_ru }}</td><td>Условный · каналы/трещины</td></tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% if recommendations %}
+  <section class="card">
+    <h2>Ranking технологий (decision tree)</h2>
+    <table>
+      <thead><tr><th>Технология</th><th>Track</th></tr></thead>
+      <tbody>
+        {% for rec in recommendations %}
+        <tr><td>{{ rec.name_ru }}</td><td>{{ rec.track }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% if opr_program %}
+  <section class="card">
+    <h2>Программа ОПР (deliverable №4)</h2>
+    <p>{{ opr_program.candidate_well }} · score {{ opr_program.well_score|int }}/100 · {{ opr_program.injection.method }}</p>
+    <p class="muted">{{ opr_program.injection.volume_m3 }} m³ @ {{ opr_program.injection.concentration_pct }}% · lead {{ opr_program.injection.lead_mol_id }}</p>
+    <a href="/opr-program" class="btn small primary">/opr-program</a>
+  </section>
+  {% endif %}
+
+  {% if synthesis_assessment %}
+  <section class="card">
+    <h2>Хемоинформатика: оценка синтеза рецептур</h2>
+    <p class="muted">{{ synthesis_assessment.expert_competency }}</p>
+    <p>{{ synthesis_assessment.reduction_story }}</p>
+    <table style="margin-top:0.5rem">
+      <thead><tr><th>#</th><th>Кандидат</th><th>Feasibility</th><th>Вердикт</th></tr></thead>
+      <tbody>
+        {% for a in synthesis_assessment.assessments %}
+        <tr><td>{{ a.rank }}</td><td><code>{{ a.recipe_id }}</code></td><td>{{ a.feasibility_score }}</td>
+            <td><span class="tag {{ a.verdict_class }}">{{ a.verdict }}</span></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/cheminformatics" class="btn small primary" style="margin-top:0.5rem">/cheminformatics</a>
+  </section>
+  {% endif %}
+
+  {% if opex_plan %}
+  <section class="card highlight">
+    <h2>Экономическая компетенция эксперта</h2>
+    <p>{{ opex_plan.expert_competency }}</p>
+    <div class="grid-2" style="margin-top:0.75rem">
+      <div>
+        <h3 style="font-size:1rem">Методология мероприятий по OPEX</h3>
+        <ol class="pitch-list">
+          {% for step in opex_plan.methodology %}
+          <li><strong>{{ step.title }}:</strong> {{ step.detail }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div>
+        <h3 style="font-size:1rem">Эффект по вашему пласту</h3>
+        <p>Экономия: <strong>{{ "{:,.0f}".format(opex_plan.analysis.annual_savings_rub).replace(",", " ") }} ₽/год</strong></p>
+        <p>Payback: <strong>{{ opex_plan.analysis.payback_months }} мес</strong> · NPV 3 года: <strong>{{ "{:,.0f}".format(opex_plan.analysis.npv_3yr_rub).replace(",", " ") }} ₽</strong></p>
+        <a href="/opex-plan" class="btn small primary" style="margin-top:0.5rem">Открыть /opex-plan</a>
+      </div>
+    </div>
+    <table style="margin-top:0.75rem">
+      <thead><tr><th>Технология</th><th>CAPEX</th><th>OPEX/год</th><th>Риск fail</th><th></th></tr></thead>
+      <tbody>
+        {% for t in opex_plan.technology_comparison %}
+        <tr>
+          <td>{{ t.technology }}</td>
+          <td>{{ "{:,.0f}".format(t.capex_rub).replace(",", " ") }} ₽</td>
+          <td>{{ "{:,.0f}".format(t.annual_reagent_rub).replace(",", " ") }} ₽</td>
+          <td>{{ t.failed_risk_pct }}%</td>
+          <td>{% if t.recommended %}<span class="tag ok">рекоменд.</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <section class="card pitch-block">
+    <h2>Сценарий встречи (3 мин)</h2>
+    <ol class="pitch-list">
+      <li><strong>Боль:</strong> WC 80%+, OPEX, готовые реагенты без диагностики.</li>
+      <li><strong>Метод:</strong> механизм → Track 1/2 → хемоинформатика (Track 1) → lab gate.</li>
+      <li><strong>Экономика:</strong> baseline OPEX → мероприятия → NPV; <a href="/opex-plan">/opex-plan</a>.</li>
+      <li><strong>Demo:</strong> <a href="/screening">/screening</a> с их T и salinity.</li>
+      <li><strong>Доказательство:</strong> <a href="/reports">6 .docx</a> + scouting.</li>
+      <li><strong>Роль:</strong> эксперт 50% · платформа ускоряет R&D.</li>
+    </ol>
+    <div class="hero-actions">
+      <a href="/screening" class="btn primary">Live demo</a>
+      <a href="/pitch/print" class="btn secondary" target="_blank">PDF (печать)</a>
+      <a href="/demo/golden/download" class="btn secondary">Golden demo ZIP</a>
+      <a href="/reports/download-all" class="btn secondary">Скачать пакет</a>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    initPitchCharts({{ charts_json | safe }});
+  });
+</script>
+{% endblock %}

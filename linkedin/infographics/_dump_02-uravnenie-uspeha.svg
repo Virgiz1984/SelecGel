@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="blueG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8F4FC"/>
+      <stop offset="100%" stop-color="#D0E8F7"/>
+    </linearGradient>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FCECC5"/>
+    </linearGradient>
+    <linearGradient id="greenG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8F8EE"/>
+      <stop offset="100%" stop-color="#C8EDD6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#F8FAFC"/>
+  <text x="600" y="70" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="36" font-weight="bold">#@02=5=85 CA?5H=>3> </text>
+  <text x="600" y="110" text-anchor="middle" fill="#64748B" font-family="Arial,sans-serif" font-size="20">5 �:0:>9 @5035=B :C?8BL�, 0 �GB> 8<5==> ;5G8<�</text>
+
+  <!-- Box 1 Diagnostics -->
+  <rect x="60" y="170" width="320" height="360" rx="20" fill="url(#blueG)" stroke="#2E86AB" stroke-width="3"/>
+  <circle cx="220" cy="230" r="42" fill="#2E86AB"/>
+  <text x="220" y="242" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="32" font-weight="bold">1</text>
+  <text x="220" y="310" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="28" font-weight="bold">!"</text>
+  <text x="90" y="360" fill="#334155" font-family="Arial,sans-serif" font-size="18">" PLT / B5<?5@0BC@=K9 ?@>D8;L</text>
+  <text x="90" y="395" fill="#334155" font-family="Arial,sans-serif" font-size="18">" AB>@8O 4518B>2 =5DB8/2>4K</text>
+  <text x="90" y="430" fill="#334155" font-family="Arial,sans-serif" font-size="18">" Tracers, :@>AA-flow</text>
+  <text x="90" y="465" fill="#334155" font-family="Arial,sans-serif" font-size="18">" 5E0=87<: coning / channel /</text>
+  <text x="90" y="490" fill="#334155" font-family="Arial,sans-serif" font-size="18">  cross-flow / behind-casing</text>
+
+  <!-- Plus -->
+  <text x="430" y="370" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="72" font-weight="bold">+</text>
+
+  <!-- Box 2 Chemistry -->
+  <rect x="460" y="170" width="320" height="360" rx="20" fill="url(#goldG)" stroke="#C8860A" stroke-width="3"/>
+  <circle cx="620" cy="230" r="42" fill="#C8860A"/>
+  <text x="620" y="242" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="32" font-weight="bold">2</text>
+  <text x="620" y="310" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="28" font-weight="bold">%/</text>
+  <text x="490" y="360" fill="#334155" font-family="Arial,sans-serif" font-size="18">" RPM  D07>20O A5;5:B82=>ABL</text>
+  <text x="490" y="395" fill="#334155" font-family="Arial,sans-serif" font-size="18">" 5;8  1;>:8@>2:0 / B5@<>B@>?</text>
+  <text x="490" y="430" fill="#334155" font-family="Arial,sans-serif" font-size="18">" PPG/RPPG  B@5I8=K 8 :0=0;K</text>
+  <text x="490" y="465" fill="#334155" font-family="Arial,sans-serif" font-size="18">"  5F5?BC@0 ?>4 T, salinity, Ca�z</text>
+  <text x="490" y="500" fill="#334155" font-family="Arial,sans-serif" font-size="18">" Core flood gate ?5@54 ?>;5<</text>
+
+  <!-- Equals -->
+  <text x="830" y="370" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="72" font-weight="bold">=</text>
+
+  <!-- Box 3 Result -->
+  <rect x="860" y="170" width="280" height="360" rx="20" fill="url(#greenG)" stroke="#16A34A" stroke-width="3"/>
+  <circle cx="1000" cy="230" r="42" fill="#16A34A"/>
+  <text x="1000" y="248" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="28" font-weight="bold">OK</text>
+  <text x="1000" y="310" text-anchor="middle" fill="#0B1F3A" font-family="Arial,sans-serif" font-size="26" font-weight="bold">-$$"</text>
+  <text x="890" y="370" fill="#334155" font-family="Arial,sans-serif" font-size="18">� >12>4=Q==>ABL</text>
+  <text x="890" y="410" fill="#334155" font-family="Arial,sans-serif" font-size="18">� 8;8 A>E@0=5=85</text>
+  <text x="890" y="435" fill="#334155" font-family="Arial,sans-serif" font-size="18">  4518B0 =5DB8</text>
+  <text x="890" y="475" fill="#334155" font-family="Arial,sans-serif" font-size="18">� OPEX ?>4JQ<0</text>
+  <text x="890" y="515" fill="#334155" font-family="Arial,sans-serif" font-size="18">� A@>: 687=8 A:2068=K</text>
+
+  <!-- Bottom quote -->
+  <rect x="120" y="570" width="960" height="70" rx="12" fill="#0B1F3A"/>
+  <text x="600" y="615" text-anchor="middle" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="22" font-weight="bold">%8<8O  ?>;>28=0 C@02=5=8O. 803=>AB8:0  2B>@0O.</text>
+</svg>

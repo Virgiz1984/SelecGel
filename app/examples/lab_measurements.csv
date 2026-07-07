@@ -1,0 +1,6 @@
+rank,frrw,frro,oil_regain_pct,water_regain_pct,viscosity_cp,thermal_stability_c,aging_frrw_delta_pct,patent_ref,notes
+1,6.2,1.6,82,18,4.8,108,7,US4498995,Lead candidate — gate passed
+2,5.4,1.9,76,24,6.1,102,11,RU2665123,Backup — acceptable Frro
+3,5.8,2.1,74,26,3.2,115,9,US5846917,High thermal stability
+4,4.9,2.4,71,29,5.5,98,14,US4391925,Below Frrw gate — optimize
+5,5.1,1.7,79,21,7.2,105,8,EP0345678,Good oil regain
